@@ -13,57 +13,24 @@ body {
 	padding: 0;
 }
 
-* {
-	box-sizing: border-box;
-}
+* {box-sizing: border-box;}
 
-b, strong {
-	font-weight: 700;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-size: 1em;
-}
-
+b, strong {font-weight: 700;}
+h1, h2, h3, h4, h5, h6 {font-size: 1em;}
 h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ul, ol, li, form, fieldset,
 	blockquote, address, table, thead, tbody, tfoot, tr, td, caption {
 	margin: 0;
 	padding: 0;
 }
 
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-ul, ol {
-	list-style: none;
-}
-
-a {
-	color: #333;
-	text-decoration: none;
-}
-
-img {
-	vertical-align: top;
-}
-
-em {
-	font-style: normal;
-}
-
-i {
-	font-style: normal;
-}
-
-address {
-	font-style: normal;
-}
-
-button {
-	outline: 0;
-}
+table {width: 100%; border-collapse: collapse;}
+ul, ol {list-style: none;}
+a {color: #333; text-decoration: none;}
+img {vertical-align: top;}
+em {font-style: normal;}
+i {font-style: normal;}
+address {font-style: normal;}
+button {outline: 0;}
 
 /* common */
 .inner {
@@ -271,72 +238,21 @@ main {
 	padding-bottom: 80px;
 }
 
-.portfolio h2 {
-	padding: 80px 0;
-}
+.portfolio h2 {padding: 80px 0;}
+.portfolio h2::after {left: 318px;}
+.portfolio .portfolio_list>li {display: flex;}
+.portfolio .portfolio_list>li+li {margin-top: 200px;}
+.portfolio .portfolio_list>li .img_area {width: 60%;}
+.portfolio .portfolio_list>li:nth-child(odd) .img_area {margin-right: 8%;}
+.portfolio .portfolio_list>li:nth-child(even) .img_area {margin-left: 8%; order: 2;}
+.portfolio .portfolio_list>li img {width: 100%;}
+.portfolio .portfolio_list>li .portfolio_cont {width: 40%; padding-top: 3%;}
+.portfolio .portfolio_list>li:nth-child(6) .portfolio_cont {padding-top: 0;}
+.portfolio .portfolio_list>li:nth-child(7) .portfolio_cont {padding-top: 0;}
+.portfolio .portfolio_list>li:nth-child(9) .portfolio_cont {padding-top: 0;}
 
-.portfolio h2::after {
-	left: 318px;
-}
-
-.portfolio .portfolio_list>li {
-	display: flex;
-}
-
-.portfolio .portfolio_list>li+li {
-	margin-top: 200px;
-}
-
-.portfolio .portfolio_list>li .img_area {
-	width: 60%;
-}
-
-.portfolio .portfolio_list>li:nth-child(odd) .img_area {
-	margin-right: 8%;
-}
-
-.portfolio .portfolio_list>li:nth-child(even) .img_area {
-	margin-left: 8%;
-	order: 2;
-}
-
-.portfolio .portfolio_list>li img {
-	width: 100%;
-}
-
-.portfolio .portfolio_list>li .portfolio_cont {
-	width: 40%;
-	padding-top: 3%;
-}
-
-.portfolio .portfolio_list>li:nth-child(6) .portfolio_cont {
-	padding-top: 0;
-}
-
-.portfolio .portfolio_list>li:nth-child(7) .portfolio_cont {
-	padding-top: 0;
-}
-
-.portfolio .portfolio_list>li:nth-child(9) .portfolio_cont {
-	padding-top: 0;
-}
-
-.btn_top {
-	visibility: hidden;
-	position: fixed;
-	bottom: 24px;
-	right: 32px;
-	width: 58px;
-	height: 58px;
-	border: 0;
-	background-color: transparent;
-	text-align: center;
-	color: #fff;
-	font-size: 15px;
-	font-weight: 500;
-	cursor: pointer;
-}
-
+.btn_top {visibility: hidden; position: fixed; bottom: 24px; right: 32px; width: 58px; height: 58px; border: 0; 
+		background-color: transparent; text-align: center; color: #fff; font-size: 15px; font-weight: 500; cursor: pointer;}
 .btn_top::before {
 	position: absolute;
 	top: 0;
