@@ -31,7 +31,10 @@ ul.gnb > li:hover > ul.lnb {height: 276px;}
 
 ul.gnb > li > a {position: relative; display: inline-block;}
 
-
+/* 삭제 해도 됨 */
+ul.lnb {display: none;}
+ul.lnb:hover .ul.lnb-dropdown {display: block; position: absolute;}
+/* */
 
 
 /* under 1200px*/
