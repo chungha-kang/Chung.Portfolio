@@ -11,33 +11,80 @@ body {
 	margin: 0;
 	padding: 0;
 }
+.gnb, .gnb a, .gnb ul, .gnb li, 
+.gnb div, .gnb form, .gnb input {margin: 0;	padding: 0;	border: none; outline: none;}
+.gnb a {text-decoration: none;}
+.gnb li {list-style: none;}
 
-h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ul, ol, li, form, fieldset, blockquote, address, table, thead, tbody, tfoot, tr, td, caption {
-	margin: 0;
-	padding: 0;
+.gnb-wrapper {max-width: 1600px; margin: 0 auto; text-align: center; background: #fff;}
+.gnb-wrapper .gnb-logo > a {float: left; width: 87px; height: 17px; background: url('../img/gnb_logo.png');}
+
+/* Menu Container */
+.gnb {display: inline-block; position: relative; cursor: default; z-index: 500;}
+
+/* Menu List */
+.gnb > li {display: block; float: left;}
+
+/* Menu Links */
+.gnb > li > a {
+	position: relative;
+	display: block;
+	z-index: 510;
+	height: 54px;
+	padding: 0 20px;
+	line-height: 54px;
+	
+	border-left: 1px solid #4b4441;
+	border-right: 1px solid #312a27;
+
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all .3s ease;
 }
 
-li, ol, ul {
-  list-style: none;
+.gnb > li:hover > a { background: #4b4441; }
+.gnb > li:first-child > a {border-radius: 3px 0 0 3px; border-left: none;}
+
+/* Menu Dropdown */
+.gnb > li > div {
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: 50px;
+	left: 0;
+
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+
+	background: #ffffff;
+	border-radius: 0 0 3px 3px;
+
+	-webkit-transition: all .3s ease .15s;
+	-moz-transition: all .3s ease .15s;
+	-o-transition: all .3s ease .15s;
+	-ms-transition: all .3s ease .15s;
+	transition: all .3s ease .15s;
 }
 
-/* header */
-.header-wrap {max-width: 1600px; margin: 0 auto; text-align: center; background: #fff;}
-.header-wrap .header-logo > a {float: left; width: 87px; height: 17px; background: url('../img/header_logo.png');}
-
-ul.gnb {}
-ul.gnb > li {display: inline-block;}
-ul.gnb > li:hover > ul.lnb {height: 276px;}
-
-ul.gnb > li > a {position: relative; display: inline-block;}
-
-/* 삭제 해도 됨 */
-ul.lnb {display: none;}
-ul.lnb:hover .ul.lnb-dropdown {display: block; position: absolute;}
-/* */
-
-
-/* under 1200px*/
-@media only screen and (max-width: 1200px) {
-	.copy {margin-left: 423px;}
+.gnb > li:hover > div {
+	opacity: 1;
+	visibility: visible;
+	overflow: visible;
 }
+
+/* Menu Content Styles */
+.gnb .lnb {float: left; width: 20%; padding: 2.5%;}
+.gnb .lnb h3 {margin: 20px 0 10px 0;	line-height: 18px; font-family: Helvetica, Arial, sans-serif; 
+	font-weight: bold; font-size: 14px;	color: #372f2b;	text-transform: uppercase;}
+.gnb .lnb h3.orange { color: #ff722b; }
+.gnb .lnb li a {display: block; line-height: 26px;	
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #888888;
+}
+
+.gnb .lnb li a:hover { color: #666666; }
