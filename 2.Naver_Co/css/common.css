@@ -6,8 +6,6 @@ body {
 	font: normal 14px 'NanumSquare', Arial, sans-serif;
 	font-weight: 400; /* Regular(400), Bold(700), Extra Bold(800), Light(300) */
 	line-height: 1.4;
-	color: #6666;
-	background-color: #000;
 	margin: 0;
 	padding: 0;
 }
@@ -16,8 +14,8 @@ body {
 .gnb a {text-decoration: none;}
 .gnb li {list-style: none;}
 
-.gnb-wrapper {max-width: 1600px; margin: 0 auto; text-align: center; background: #fff;}
-.gnb-wrapper .gnb-logo > a {float: left; width: 87px; height: 17px; background: url('../img/gnb_logo.png');}
+.header-wrap {max-width: 1600px; margin: 0 auto; text-align: center; background: #fff;}
+.header-wrap .header-logo > a {float: left; width: 87px; height: 17px; background: url('../img/header_logo.png');}
 
 /* Menu Container */
 .gnb {display: inline-block; position: relative; cursor: default; z-index: 500;}
@@ -33,9 +31,6 @@ body {
 	height: 54px;
 	padding: 0 20px;
 	line-height: 54px;
-	
-	border-left: 1px solid #4b4441;
-	border-right: 1px solid #312a27;
 
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
@@ -77,14 +72,11 @@ body {
 
 /* Menu Content Styles */
 .gnb .lnb {float: left; width: 20%; padding: 2.5%;}
-.gnb .lnb h3 {margin: 20px 0 10px 0;	line-height: 18px; font-family: Helvetica, Arial, sans-serif; 
-	font-weight: bold; font-size: 14px;	color: #372f2b;	text-transform: uppercase;}
-.gnb .lnb h3.orange { color: #ff722b; }
-.gnb .lnb li a {display: block; line-height: 26px;	
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	color: #888888;
-}
-
+.gnb .lnb li a {display: block; line-height: 26px;}
+.gnb .lnb li:first-child > a {font-weight: bold; font-size: 18px; line-height: 50px;}
 .gnb .lnb li a:hover { color: #666666; }
+
+
+/* Slide */
+.slide-wrapper {max-width: 1600px; margin: 0 auto; text-align: center;}
+.slide-wrapper .slide-img > a {display: block; position: relative; width: 100%; height: 430px; background: url('../img	/silder_img01.png');}
