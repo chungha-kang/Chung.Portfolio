@@ -18,10 +18,11 @@ address, table, thead, tbody, tfoot, tr, td, caption {margin: 0; padding: 0;}
 .gnb li {list-style: none;}
 
 .header-wrap {max-width: 1600px; margin: 0 auto; text-align: center; background: #fff;}
-.header-wrap .header-logo > a {float: left; width: 87px; height: 17px; background: url('../img/header_logo.png');}
+.header-wrap .header-logo > a {margin: 32px 0 0 30px; float: left; display: block; width: 87px; height: 17px; background: url('../img/header_logo.png');}
 
 /* Menu Container */
-.gnb {display: inline-block; position: relative; cursor: default; z-index: 500;}
+nav{display: inline-block;}
+.gnb {max-width: 1600px; position: relative; text-align: center; cursor: default; z-index: 500;}
 
 /* Menu List */
 .gnb > li {display: block; float: left;}
@@ -30,35 +31,31 @@ address, table, thead, tbody, tfoot, tr, td, caption {margin: 0; padding: 0;}
 .gnb > li > a {
 	position: relative;
 	display: block;
-	z-index: 510;
-	height: 54px;
-	padding: 0 20px;
-	line-height: 54px;
+	margin: 0 32px;
+	padding: 29px 0 30px;
+	font-size: 15px;
+	color: #333
 }
 
-.gnb > li:hover > a {background: #4b4441;}
+.gnb > li:hover > a {background-color: #1ec545;}
 .gnb > li:first-child > a {border-radius: 3px 0 0 3px; border-left: none;}
 
 /* Menu Dropdown */
 .gnb > li > div {
+	min-width: 1100px;
 	position: absolute;
 	display: block;
 	width: 100%;
-	height: 400px;
+	height: 341px;
 	top: 50px;
 	left: 0;
+	right: 0;
+	background-color: #1ec545;
 
 	opacity: 0;
 	visibility: hidden;
 	overflow: hidden;
 
-	background: #ffffff;
-	border-radius: 0 0 3px 3px;
-
-	-webkit-transition: all .3s ease .15s;
-	-moz-transition: all .3s ease .15s;
-	-o-transition: all .3s ease .15s;
-	-ms-transition: all .3s ease .15s;
 	transition: all .3s ease .15s;
 }
 
