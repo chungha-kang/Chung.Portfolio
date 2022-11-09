@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>우리동네에서 찾는 당근알바</title>
 	<link rel="stylesheet" media="all" href="css/common.css" />
 	<script type="text/javascript" src="/js/common.js"></script>
@@ -10,127 +11,43 @@
 
 <body>
 	<!-- Header -->
-	<div class="header-wrap">
-		<div class="nav">
-			<div class="nav-logo">
-				<a href="/KHdaangn">logo.png</a>
-			</div>
-			<div class="nav-main">
-				<ul class="nav-item">
-					<li><a href="/KHdaangn">중고거래</a></li>
-					<li><a href="/KHdaangn/jobs">알바</a></li>
-					<li><a href="/KHdaangn/realty">부동산 직거래</a></li>
-				</ul>
-			</div>
-			<div class="search-bar">
-				<input class="" placeholder="물품이나 동네를 검색해보세요.">
-			</div>
-			<button class="btn-chat">채팅하기</button>
-			<button class="btn-loging">로그인</button>
-			<!-- 
-			<ul id="nav-login">
-				<c:if test="${empty sessionScope.loginData}">
-					<li><a href="/join">회원가입</a></li>
-					<li><a href="/login">로그인</a></li>
-				</c:if>
-				<c:if test="${not empty sessionScope.loginData}">
-					<li><a href="/chat">채팅하기</a></li>
-					<li><a href="/logout">로그아웃</a></li>
-				</c:if>
-			</ul>
-			 -->
-		</div>
-	</div>
 	<!-- //Header -->
 		
 	<!-- Main -->
 	<div class="main-wrap">
-		<div>
-			당신 근처의<br> KH당근마켓<br>
+		<div class="main-jobs">
+			<div class="">
+				<h1>우리 동네에서 찾는<br>당근알바<br></h1>
+			</div>
+		
 		</div>
-		<div>
-			우리 동네<br> 중고 직거래 마켓<br>
+		<h2 class="">인기 당근알바</h2>
+		<div class="job-posts">
+			<a href="" class="">
+				<article>
+					<div class="job-posts-img"></div>
+					<div class="job-posts-content">
+						<div class="job-posts-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+						<div class="job-posts-title">콜센터 ・ 경기도 부천시 상동</div>
+						<div class="job-posts-title">월급 1,500,000</div>
+					</div>
+				</article>
+			</a>
 		</div>
-		<div>
-			이웃과 함께 하는<br> 동네생활<br>
+		<div class="job-posts">
+			<div class="job-posts-img">
+				<a href=""></a>
+			</div>
+			<div class="job-posts-content">
+				<div class="job-posts-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+				<div class="job-posts-title">콜센터 ・ 경기도 부천시 상동</div>
+				<div class="job-posts-title">월급 1,500,000</div>
+			</div>
 		</div>
-		<div>
-			내 근처에서 찾는<br> 동네가게<br>
-		</div>
-		<div>
-			중고거래 인기매물<br>
-			<a href="/KHdaangn/hot_articles">인기매물 더 보기</a>
-		</div>
-		<div>
-			<a href="/KHdaangn/top_keywords">중고거래 인기검색어</a>
-		</div>
-	</div>	
+	</div>
 	<!-- //Main -->
 	
 	<!-- Footer -->
-	<div class="footer-wrap">
-		<footer class="footer">
-			<div class="footer-nav">
-				<div class="footer-nav-left">
-					<ul>
-						<li><a href="/hot_articles">중고거래</a>
-						<li><a href="">동네가게</a>
-						<li><a href="">당근알바</a>
-					</ul>
-					<ul>
-						<li><a href="">당근비즈니스</a>
-						<li><a href="">채팅하기</a>
-					</ul>
-					<ul>
-						<li><a href="">자주 묻는 질문</a>
-						<li><a href="">회사 소개</a>
-						<li><a href="">인재 채용</a>
-					</ul>
-				</div>
-				<div class="footer-nav-right">
-					<div class="">당근마켓 앱 다운로드</div>
-					<div class="">
-						<a href="https://apps.apple.com/kr/app/%EB%8B%B9%EA%B7%BC%EB%A7%88%EC%BC%93-%EC%A4%91%EA%B3%A0%EA%B1%B0%EB%9E%98-%ED%95%84%EC%88%98%EC%95%B1/id1018769995">App Store</a>
-						<a href="https://play.google.com/store/apps/details?id=com.towneers.www&hl=ko&pli=1">Google Play</a>
-					</div>
-				</div>
-			</div>
-			<div class="footer-info">
-				<div class="footer-info-left">
-					프로젝트 참여인원 : 강청하, 노수진, 서중완, 이다은, 허윤<br> 
-					프로젝트 진행기간 : 2022. 11. 08 ~ 2022. 12. 09
-				</div>
-				<div class="footer-info-right">
-					<a aria-labbel="facebook" href="https://www.facebook.com/" target="_blank">
-						<svg></svg>
-					</a>
-					<a aria-labbel="instagram" href="https://www.facebook.com/" target="_blank">
-						<svg></svg>
-					</a>
-					<a aria-labbel="youtube" href="https://www.facebook.com/" target="_blank">
-						<svg></svg>
-					</a>
-					<a aria-labbel="blog" href="https://www.facebook.com/" target="_blank">
-						<svg></svg>
-					</a>
-					<div>
-						<label class="">
-							<svg></svg>
-							<select id="label-select-nation" class="">
-								<option value="kr" selected>한국어</option>
-								<option value="none">none</option>
-								<option value="none">none</option>
-								<option value="none">none</option>
-								<option value="none">none</option>
-							</select>
-							<svg></svg>
-						</label>
-					</div>
-				</div>
-				
-			</div>
-		</footer>
-	</div>
 	<!-- //Footer -->	
 </body>
 </html>
