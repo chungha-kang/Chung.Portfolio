@@ -889,3 +889,235 @@ input::placeholder {
 	opacity: 1;
 	transform: none;
 }
+
+
+
+/* 네비게이션 및 푸터 css */
+*{
+  list-style: none;
+}
+
+#navigation-menu a { 
+	text-decoration: none !important;
+	color: #ffffff !important;
+}
+
+#navigation-menu {
+	position:relative;
+	background-color: rgba(251,202,156);
+	background-size: 100%;
+	display: block;
+}
+
+#nav-login{
+	text-align: right;
+	margin:0px;
+	padding: 7px 10px 0px;
+}
+
+#nav-login>li {
+	display: inline;
+	padding : 20px;
+}
+
+#nav-login>li>a {
+	font-size: 13px;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+}
+
+.navigation-img {
+ 	width: 100px;
+ 	margin-bottom: 10px;
+ 	filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+}
+
+.main-list {
+	font-size: 17px;
+}
+
+.nav-main{
+	text-align:center;
+	margin-left: auto;
+	margin:0px;
+	padding:0px;
+}
+
+.nav-main>li {
+	border: none;
+	display: inline-block;
+    text-align: center;
+    width: 16%;
+    padding: inherit;
+}
+
+.nav-item.dropdown {
+	position: relative;
+	z-index: 99;
+}
+
+.nav-item.dropdown.oneline {
+	padding: 30px 0 40px 30px;
+}
+
+.nav-item.dropdown#twoline {
+	padding: 20px 0 40px 30px;
+}
+
+.nav-item.dropdown>.dropdown-nav {
+	margin-top: 1.48rem;
+	display: none;
+	position: absolute;
+	left: 1rem;
+	width: 100%;
+	padding: 21px 0px 30px 0px;
+}
+
+.nav-item.dropdown:hover>.dropdown-nav {
+	white-space: nowrap;
+	text-overflow: none;
+	display: block;
+	font-size: 14px;
+}
+
+.nav-main.dropdown-nav>.nav-item {
+	display: block;
+	clear: both;
+	width: 100%;
+	text-align: center;
+	background-color: rgba(0,0,0,0.4);
+}
+.dropdown>a {
+	color: white;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+}
+
+.nav-main.dropdown-nav>li:hover {
+  border-left: 5px solid black;
+}
+
+
+.footer {
+	width: 100%;
+	bottom : 0px;
+	background-color: rgba(251,202,156);
+	height: 95px;
+	position : relative;
+	margin:0px;
+	padding:0px;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.footer a {
+	text-decoration: none !important;
+	color: #ffffff !important;
+}
+
+.ft-left {
+	float: left;
+	margin: 10px 10px 0px;
+	padding:0px;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+}
+
+.ft-right {
+	float: right;
+	margin:0 20px 0 0;
+	padding-bottom: 0px;
+}
+
+.ft-title {
+	font-size:16px;
+	font-weight:bold;
+	color:white;
+	margin-bottom:0px;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+}
+
+.ft-content {
+	font-size:12px;
+	color:white;
+	margin-bottom:0px;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+}
+
+.ft-copy {
+	font-size:10px;
+	color:white;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+}
+
+.ft-terms {
+	display:inline-block;
+	position:relative;
+	right:20px;
+	margin: 24px 10px 0px;
+	padding:0px;
+	font-size: 12px;
+	color: white;
+	line-height:25px;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+}
+
+.ft-connection {
+	float: right;
+	margin: 17px 20px 0px;
+	padding:0px;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+}
+
+.footer-img {
+	margin: 15px 10px 0px;
+	width: 30px;
+	padding-bottom: 0px;
+	margin-bottom:0px;
+}
+
+
+/* map api */
+.wrap {
+		position: absolute;
+		left: 75px;
+		bottom: -33px;
+		width: 288px;
+		height: 132px;
+		margin-left: -144px;
+		text-align: left;
+		overflow: hidden;
+		font-size: 12px;
+		font-family: 'Noto Sans KR', sans-serif;
+		font-weight: regular;
+		line-height: 1.5;
+	}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+    
+    .kakaomap {
+		width: 800px;
+		height: 600px;
+		display: block;
+		margin: auto;
+		font-size: 15px;
+		font-weight: regular !important;
+		text-align: center !important;
+	}
