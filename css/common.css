@@ -123,6 +123,20 @@ h3 {
 	background-color: #766d81;
 }
 
+.btn_area .btn_view2 {
+	display: inline-block;
+	width: 150px;
+	padding: 7px 0;
+	border-radius: 16px;
+	background-color: #c0c0c0;
+	color: #fff;
+	letter-spacing: -1px;
+}
+
+.btn_area .btn_view2:hover {
+	background-color: #a69eb0;
+}
+
 .file_link {
 	font-size: 15px;
 }
