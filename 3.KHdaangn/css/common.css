@@ -28,4 +28,5 @@ address, table, thead, tbody, tfoot, tr, td, caption {margin: 0; padding: 0;}
 
 
 /* jobs */
-.job-posts .job-posts-img {display: block; float: left; width: 80px; height: 80px; background: url('../img/job-posts-img.jpg')}
+.job-posts {display:flex; justify-content: space-between;}
+.job-posts .job-posts-img > img {display: block; width: 80px; height: 80px; float: left; }
