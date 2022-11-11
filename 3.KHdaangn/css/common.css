@@ -27,6 +27,11 @@ address, table, thead, tbody, tfoot, tr, td, caption {margin: 0; padding: 0;}
 .main-wrap .main-jobs {background-color: #ff6f0f;}
 
 
+@media screen and (min-width: 768px) {
+	.post-wrap {margin: 0 auto;}
+	
+}
+
 /* jobs */
 .job-posts {display:flex; justify-content: space-between;}
 .job-posts .job-posts-img > img {display: block; width: 80px; height: 80px; float: left; }
