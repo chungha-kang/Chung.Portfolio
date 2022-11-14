@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>당신 근처의 KH당근마켓</title>
+	<title>오늘의 중고 인기 검색어 | 당신 근처의 KH당근마켓</title>
 	<link rel="stylesheet" media="all" href="css/common.css" />
 	<script type="text/javascript" src="/js/common.js"></script>
 </head>
@@ -26,21 +26,19 @@
 			<div class="search-bar">
 				<input class="" placeholder="물품이나 동네를 검색해보세요.">
 			</div>
-			<div class="nav-login">
-				<button class="btn-chat">채팅하기</button>
-				<button class="btn-login">로그인</button>
-			</div>
+			<button class="btn-chat">채팅하기</button>
+			<button class="btn-loging">로그인</button>
 			<!-- 
-			<div class="nav-login">
+			<ul id="nav-login">
 				<c:if test="${empty sessionScope.loginData}">
-					<button class="btn-join><a href="/join">회원가입</a></li>
-					<button class="btn-login><a href="/login">로그인</a></li>
+					<li><a href="/join">회원가입</a></li>
+					<li><a href="/login">로그인</a></li>
 				</c:if>
 				<c:if test="${not empty sessionScope.loginData}">
-					<button class="btn-chat"><a href="/chat">채팅하기</a></li>
-					<button class="btn-logout"><a href="/logout">로그아웃</a></li>
+					<li><a href="/chat">채팅하기</a></li>
+					<li><a href="/logout">로그아웃</a></li>
 				</c:if>
-			</div>
+			</ul>
 			 -->
 		</div>
 	</div>
@@ -48,26 +46,15 @@
 		
 	<!-- Main -->
 	<div class="main-wrap">
-		<div class="main-content">
-			당신 근처의<br>KH당근마켓<br>
-		</div>
-		<div class="main-content">
-			우리 동네<br> 중고 직거래 마켓<br>
-		</div>
-		<div class="main-content">
-			이웃과 함께 하는<br> 동네생활<br>
-		</div>
-		<div class="main-content">
-			내 근처에서 찾는<br>동네가게<br>
-		</div>
-		<div>
-			중고거래 인기매물<br>
-			<!-- 중고거래 인기매물 -->
-			<a href="/KHdaangn/hot_articles">인기매물 더 보기</a>
-		</div>
-		<div>
-			<a href="/KHdaangn/top_keywords">중고거래 인기검색어</a>
-			<!-- 인기검색어 -->
+		<div class="join-wrap">
+			<h2 class="join-title">회원가입</h2>
+			<input class="join-input" placeholder="휴대폰 번호를 입력해주세요">
+			<button class="join-button">인증문자 받기</button>
+			<input class="join-input" placeholder="인증번호를 입력해주세요">
+			<div class="policy"><a href="">이용약관</a><p>및</p><a href="">개인정보취급방침</a></div>
+			<button class="join-button">동의하고 시작하기</button>
+			<hr>
+			<button class="naverLogin">네이버 로그인</button>
 		</div>
 	</div>	
 	<!-- //Main -->
