@@ -12,11 +12,16 @@ body {
 h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ul, ol, li, form, fieldset, blockquote, 
 address, table, thead, tbody, tfoot, tr, td, caption {margin: 0; padding: 0;}
 
-.nav{}
-.nav .nav-logo > a {background: url('../img/logo.png');}
-.nav .nav-main {display:flex;}
-.nav .nav-main > ul {display: inline-block; list-style: none;}
+
+.nav{display: flex; max-width: 1600px; margin: 10px auto; text-align: center;}
+.nav .nav-logo > a {width: 115px; height: 38px; display: flex; align-items: center;}
+.nav .nav-logo a > img {width: 38px; height: 38px; display: block;}
+.nav .nav-main {width: 600px;}
+.nav .nav-main > ul {margin: 10px; display: flex; list-style: none;}
 .nav .nav-main > li {display: list-item;}
+.nav .nav-main li > a {margin-right: 15px;}
+.nav .nav-serch-bar {width: 450px;}
+.nav .nav-btn {width: 135px;}
 
 
 .main-wrap {align-items: center;}
