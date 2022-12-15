@@ -9,75 +9,183 @@
 	<script type="text/javascript" src="/js/common.js"></script>
 </head>
 
+<script type="text/javascript">
+	function enterkey() {
+	    if (window.event.keyCode == 13) {
+	         // 엔터키가 눌렸을 때 실행할 내용
+	         // 검색 기능 구현 전 임시
+	         location.href= "search/"
+	         
+	         // 검색 기능 구현 후 활성화
+	         //let value = document.getElementById('search').value;
+	         //location.href= "search/" + value;
+	    }
+	}
+</script>
+
 <body>
 	<!-- Header -->
 	<div class="header-wrap">
 		<div class="nav">
 			<div class="nav-logo">
-				<a href="/KHdaangn"></a>
+				<a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/"><img src="img/logo.png">KH당근마켓</a>
 			</div> 
 			<div class="nav-main">
 				<ul class="nav-item">
-					<li><a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/">중고거래</a></li>
+					<li><a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/hot_articles">중고거래</a></li>
 					<li><a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs">알바</a></li>
 					<li><a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/realty">부동산 직거래</a></li>
 				</ul>
 			</div>
 			<div class="search-bar">
-				<input class="" placeholder="물품이나 동네를 검색해보세요.">
+				<input onkeyup="enterkey();" type="text" id="search" placeholder="물품이나 동네를 검색해보세요." />
 			</div>
-			<button class="btn-chat">채팅하기</button>
-			<button class="btn-loging">로그인</button>
-			<!-- 
-			<ul id="nav-login">
-				<c:if test="${empty sessionScope.loginData}">
-					<li><a href="/join">회원가입</a></li>
-					<li><a href="/login">로그인</a></li>
-				</c:if>
-				<c:if test="${not empty sessionScope.loginData}">
-					<li><a href="/chat">채팅하기</a></li>
-					<li><a href="/logout">로그아웃</a></li>
-				</c:if>
-			</ul>
-			 -->
+			<div class="nav-btn">
+				<button class="btn-chat" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/join'">회원가입</button>
+				<button class="btn-login" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/login'">로그인</button>
+			</div>
 		</div>
 	</div>
 	<!-- //Header -->
 		
 	<!-- Main -->
 	<div class="main-wrap">
-		<div class="main-jobs">
-			<div class="">
-				<h1>우리 동네에서 찾는<br>당근알바<br></h1>
+		<div class="main-top-wrap">
+			<div class="main-top">
+				<div class="main-text">
+					<h1>우리 동네에서 찾는<br>당근알바<br></h1>
+					<p>걸어서 10분 거리의<br>동네 알바들 여기 다 있어요.</p>
+				</div>
+				<div class="main-img">
+					<img src="img/jobs-img.png">
+				</div>
 			</div>
+		</div>
 		
+		<div class="post-wrap">
+			<div class="post-top-wrap">
+				<h2>인기 당근알바</h2>
+				<div class="post-btn">
+					<button onclick="location.href='${jobAddUrl}'">글쓰기</button>
+				</div>
+			</div>
 		</div>
-		<h2 class="">인기 당근알바</h2>
+		
 		<div class="posts">
-			<a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/" class="">
-				<article>
-					<div class="posts-img"><img alt="" src="img/job-post-img.jpg"></div>
-					<div class="posts-content">
-						<div class="posts-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
-						<div class="posts-id">콜센터</div>
-						<div class="posts-address">경기도 부천시 상동</div>
-						<div class="posts-amount">월급 1,500,000</div>
+			<div class="post">
+				<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+					<img class="post-img" src="img/job-post-img.jpg">
+					<div class="post-content">
+						<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+						<div class="post-id">콜센터</div>
+						<div class="post-address">경기도 부천시 상동</div>
+						<div class="post-amount">월급 1,500,000</div>
 					</div>
-				</article>
-			</a>
-		</div>
-		<div class="posts">
-			<a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobvs-posts/" class="">
-				<article>
-					<div class="posts-img"><img alt="" src="img/job-post-img.jpg"></div>
-					<div class="posts-content">
-						<div class="posts-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
-						<div class="posts-id">콜센터</div>
-						<div class="posts-address">경기도 부천시 상동</div>
-						<div class="posts-amount">월급 1,500,000</div>
+				</div>
+			</div>
+			<div class="post">
+				<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+					<img class="post-img" src="img/job-post-img.jpg">
+					<div class="post-content">
+						<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+						<div class="post-id">콜센터</div>
+						<div class="post-address">경기도 부천시 상동</div>
+						<div class="post-amount">월급 1,500,000</div>
 					</div>
-				</article>
-			</a>
+				</div>
+			</div>
+			<div class="post">
+				<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+					<img class="post-img" src="img/job-post-img.jpg">
+					<div class="post-content">
+						<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+						<div class="post-id">콜센터</div>
+						<div class="post-address">경기도 부천시 상동</div>
+						<div class="post-amount">월급 1,500,000</div>
+					</div>
+				</div>
+			</div>
+			<div class="post">
+				<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+					<img class="post-img" src="img/job-post-img.jpg">
+					<div class="post-content">
+						<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+						<div class="post-id">콜센터</div>
+						<div class="post-address">경기도 부천시 상동</div>
+						<div class="post-amount">월급 1,500,000</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="karrot-app" onclick="location.href=''">
+				<div class="app-left">
+					<img src="${img}/jobs_banner.png">
+				</div>
+				<div class="app-mid">
+					우리동네 알바가 궁금하다면<br>당근마켓에서 바로 찾아보세요!<br>
+				</div>
+				<div class="app-right">
+					앱 다운로드 하기
+				</div>
+			</div>
+			
+			<div class="posts" style="margin: 5rem auto 0;">
+				<div class="post">
+					<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+						<img class="post-img" src="img/job-post-img.jpg">
+						<div class="post-content">
+							<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+							<div class="post-id">콜센터</div>
+							<div class="post-address">경기도 부천시 상동</div>
+							<div class="post-amount">월급 1,500,000</div>
+						</div>
+					</div>
+				</div>
+				<div class="post">
+					<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+						<img class="post-img" src="img/job-post-img.jpg">
+						<div class="post-content">
+							<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+							<div class="post-id">콜센터</div>
+							<div class="post-address">경기도 부천시 상동</div>
+							<div class="post-amount">월급 1,500,000</div>
+						</div>
+					</div>
+				</div>
+				<div class="post">
+					<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+						<img class="post-img" src="img/job-post-img.jpg">
+						<div class="post-content">
+							<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+							<div class="post-id">콜센터</div>
+							<div class="post-address">경기도 부천시 상동</div>
+							<div class="post-amount">월급 1,500,000</div>
+						</div>
+					</div>
+				</div>
+				<div class="post">
+					<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+						<img class="post-img" src="img/job-post-img.jpg">
+						<div class="post-content">
+							<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+							<div class="post-id">콜센터</div>
+							<div class="post-address">경기도 부천시 상동</div>
+							<div class="post-amount">월급 1,500,000</div>
+						</div>
+					</div>
+				</div>
+				<div class="post">
+					<div class="post-click" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-posts/'">
+						<img class="post-img" src="img/job-post-img.jpg">
+						<div class="post-content">
+							<div class="post-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+							<div class="post-id">콜센터</div>
+							<div class="post-address">경기도 부천시 상동</div>
+							<div class="post-amount">월급 1,500,000</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- //Main -->
