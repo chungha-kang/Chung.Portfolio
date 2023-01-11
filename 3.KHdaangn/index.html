@@ -6,46 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>당신 근처의 KH당근마켓</title>
 	<link rel="stylesheet" media="all" href="css/common.css" />
-	<script type="text/javascript" src="/js/common.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$(document).ready( function() {
+		    $("#header").load("module/header.html");
+		    $("#footer").load("module/footer.html");
+		});
+	</script>
 </head>
-
-<script type="text/javascript">
-	function enterkey() {
-	    if (window.event.keyCode == 13) {
-	         // 엔터키가 눌렸을 때 실행할 내용
-	         // 검색 기능 구현 전 임시
-	         location.href= "search/"
-	         
-	         // 검색 기능 구현 후 활성화
-	         //let value = document.getElementById('search').value;
-	         //location.href= "search/" + value;
-	    }
-	}
-</script>
 
 <body>
 	<!-- Header -->
-	<div class="header-wrap">
-		<div class="nav">
-			<div class="nav-logo">
-				<a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/"><img src="img/logo.png">KH당근마켓</a>
-			</div> 
-			<div class="nav-main">
-				<ul class="nav-item">
-					<li><a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/hot_articles">중고거래</a></li>
-					<li><a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs">알바</a></li>
-					<li><a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/realty">부동산 직거래</a></li>
-				</ul>
-			</div>
-			<div class="search-bar">
-				<input onkeyup="enterkey();" type="text" id="search" placeholder="물품이나 동네를 검색해보세요." />
-			</div>
-			<div class="nav-btn">
-				<button class="btn-chat" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/join'">회원가입</button>
-				<button class="btn-login" onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/login'">로그인</button>
-			</div>
-		</div>
-	</div>
+	<div id="header"></div>
 	<!-- //Header -->
 		
 	<!-- Main -->
