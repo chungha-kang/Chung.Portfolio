@@ -166,5 +166,68 @@
 	<!-- Footer -->
 	<div id="footer"></div>
 	<!-- //Footer -->	
+	
+	<script type="text/javascript">
+	function formCheck(form) {
+		var modal = new bootstrap.Modal(document.getElementById("errorModal"), {
+			keyboard: false
+		});
+	
+		form.submit();
+	}
+	
+	function uploadCheck(element) {
+		var modal = new bootstrap.Modal(document.getElementById("errorModal"), {
+			keyboard: false
+		});
+		var title = modal._element.querySelector(".modal-title");
+		var body = modal._element.querySelector(".modal-body");
+		
+		if(element.files.length > 5) {
+			title.innerText = "파일 업로드 제한";
+			body.innerText = "파일은 업로드는 최대 5개 까지만 할 수 있습니다.";
+			element.value = "";
+			modal.show();
+			return;
+		}
+		
+		for(file of element.files) {
+			console.log("1" + element.files);
+			console.log("2" + element.files[0]);
+			if(file.size / 1000 / 1000 > 10.0) {
+				title.innerText = "파일 크기 제한";
+				body.innerText = "파일은 최대 10MB 를 초과할 수 없습니다.";
+				element.value = "";
+				modal.show();
+				return;
+			}
+		}
+	}
+	</script>
+	
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript">	
+		function addAddress() {
+		    new daum.Postcode({
+		        oncomplete: function(data) {
+		            //팝업에서 검색결과 항목을 클릭했을때 실행하는 부분
+		            var roadAddr = data.roadAddress; //도로명 주소 변수 //중고판매가 아닌 알바는 도로명 주소도 사용 가능
+		            var jibunAddr = data.jibunAddress; //지번 주소 변수 
+		            var bcode = data.bcode; //동 코드
+		            var bname = data.bname //동 이름
+		            //document.getElementById('member_post').value = data.zonecode; //우편번호는 X
+		            
+		            if(roadAddr !== ''){
+		               document.getElementById("address").value = roadAddr;
+		            } 
+		            else if(jibunAddr !== ''){
+		               document.getElementById("address").value = jibunAddr;
+		            }
+		            document.getElementById("addressCode").value = bcode;
+		            document.getElementById("addressName").value = bname;
+		        }
+		    }).open();
+		};
+    </script>
 </body>
 </html>

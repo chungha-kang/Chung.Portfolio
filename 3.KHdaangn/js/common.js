@@ -15,7 +15,6 @@ function enterkey() {
 	}
 }
 
-
 /* hot_article.jsp select box */
  function adressSelect(e) {
 	var seoul = ["깅님구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"];
@@ -65,8 +64,6 @@ function enterkey() {
 	   }
 }
 
-
-/* Delete_btn */
 $("#delete_btn").on("click", function(e){
 	$("#jobPost").attr("action", "${pageContext.request.contextPath}/jobs/delete/${jobInfo.jobBId}");
 	$("#jobPost").attr("method", "post");
@@ -74,7 +71,6 @@ $("#delete_btn").on("click", function(e){
 });
 
 
-/* Kakao Map API */
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
 		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -112,67 +108,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
 		    } 
-		});   
-           
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-function addAddress() {
-    new daum.Postcode({
-        oncomplete: function(data) {
-            //팝업에서 검색결과 항목을 클릭했을때 실행하는 부분
-            var roadAddr = data.roadAddress; //도로명 주소 변수 //중고판매가 아닌 알바는 도로명 주소도 사용 가능
-            var jibunAddr = data.jibunAddress; //지번 주소 변수 
-            var bcode = data.bcode; //동 코드
-            var bname = data.bname //동 이름
-            //document.getElementById('member_post').value = data.zonecode; //우편번호는 X
-            
-            if(roadAddr !== ''){
-                document.getElementById("address").value = roadAddr;
-            } 
-            else if(jibunAddr !== ''){
-                document.getElementById("address").value = jibunAddr;
-            }
-            document.getElementById("addressCode").value = bcode;
-            document.getElementById("addressName").value = bname;
-        }
-    }).open();
-};
+		});    
 
 
-      
-/* add page 파일업로드제한 관련 */
-function formCheck(form) {
-    var modal = new bootstrap.Modal(document.getElementById("errorModal"), {
-        keyboard: false
-    });
-
-    form.submit();
-}
-
-function uploadCheck(element) {
-    var modal = new bootstrap.Modal(document.getElementById("errorModal"), {
-        keyboard: false
-    });
-    var title = modal._element.querySelector(".modal-title");
-    var body = modal._element.querySelector(".modal-body");
-    
-    if(element.files.length > 5) {
-        title.innerText = "파일 업로드 제한";
-        body.innerText = "파일은 업로드는 최대 5개 까지만 할 수 있습니다.";
-        element.value = "";
-        modal.show();
-        return;
-    }
-    
-    for(file of element.files) {
-        console.log("1" + element.files);
-        console.log("2" + element.files[0]);
-        if(file.size / 1000 / 1000 > 10.0) {
-            title.innerText = "파일 크기 제한";
-            body.innerText = "파일은 최대 10MB 를 초과할 수 없습니다.";
-            element.value = "";
-            modal.show();
-            return;
-        }
-    }
-}
-
+        
