@@ -12,6 +12,7 @@ body {
 html{font-size: 62.5%;}
 h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ul, ol, li, form, fieldset, blockquote, 
 address, table, thead, tbody, tfoot, tr, td, caption {margin: 0; padding: 0;}
+input:not([type="image" i]) {box-sizing: border-box;}
 
 /* header */
 .header-wrap {width: 100%; position: fixed; top: 0; z-index: 999; background-color: #FFFFFF}
