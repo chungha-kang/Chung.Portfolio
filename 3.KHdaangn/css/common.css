@@ -70,7 +70,7 @@ address, table, thead, tbody, tfoot, tr, td, caption {margin: 0; padding: 0;}
 
 
 /* index */
-.main-wrap {margin: 8.8rem auto 0;}
+.main-wrap {margin: 10.5rem auto 0;}
 .main-wrap .main-content:first-child {position: relative; display: flex; justify-content: center; padding-top: 2.4rem; background-color: #FBF7F2;}
 .main-wrap .main-content:nth-child(2) {padding: 6rem 0; display: flex; justify-content: center;}
 .main-wrap .main-content:nth-child(3) {padding: 6rem 0; display: flex; justify-content: center; background-color: #E6F3E6;}
