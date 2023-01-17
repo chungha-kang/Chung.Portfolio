@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>우리동네에서 찾는 당근알바</title>
+	<link rel="stylesheet" media="all" href="css/common.css" />
+	<script type="text/javascript" src="js/common.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$(document).ready( function() {
+		    $("#header").load("module/header.html");
+		    $("#footer").load("module/footer.html");
+		});
+	</script>
+</head>
+
+<body>
+	<!-- Header -->
+	<div id="header"></div>
+	<!-- //Header -->
+	
+	<!-- Main -->
+	<div class="main-wrap">
+		<div class="posting-wrap">
+			<h1>알바공고 쓰기</h1>
+			
+			<!-- 로그인 구현시 삭제 -->
+			<div class="temp-wrap">
+				<h3>temporarily section (login data)</h3>
+				<h3>상호명</h3><input type="text" name="companyName" value="${jobAdd.companyName}">
+				<h3>사용자id</h3><input type="text" name="userId" value="${jobAdd.userId}">
+			</div>
+			<!-- //로그인 구현시 삭제 -->
+			
+			<div class="add-photo">
+				<h3>사진(선택)</h3>
+				<p>일하는 공간이나 일과 관련된 사진을 올려보세요</p>
+				<div class="addPhotoIcon">+</div>
+				<input type="file" name="upload" onchange="uploadCheck(this);" multiple>
+			</div>
+			<div class="add-title">
+				<h3>제목</h3>
+				<input type="text" name="title" placeholder="구인 내용 요약" value="${jobAdd.title}" >
+			</div>
+			<div class="add-info">
+				<h3>정보</h3>
+				<div class="info-wrap">
+					<select name="payType">
+						<option value="시급">시급</option>
+						<option value="일급">일급</option>
+						<option value="월급" selected>월급</option>
+						<option value="건당급">건당급</option>
+					</select>
+					<input type="text" name="pay" placeholder="9,160" value="${jobAdd.pay}" onKeyUp="this.value=this.value.replace(/[^0-9]/g,'')" >
+					<p>원</p>
+				</div>
+				<input type="text" name="address" id="address" placeholder="위치(주소)" value="${jobAdd.address}" onClick="addAddress()" >
+				<input type="hidden" type="text" name="addressCode" id="addressCode" value="${jobAdd.addressCode}">
+				<input type="hidden" type="text" name="addressName" id="addressName" value="${jobAdd.addressName}">
+			</div>
+			<div class="add-week">
+				<h3>일하는 요일</h3>
+				<div class="week-btn">
+					<input class="rounded" type="button" name="week" value="월">
+					<input class="rounded" type="button" name="week" value="화">
+					<input class="rounded" type="button" name="week" value="수">
+					<input class="rounded" type="button" name="week" value="목">
+					<input class="rounded" type="button" name="week" value="금">
+					<input class="rounded" type="button" name="week" value="토">
+					<input class="rounded" type="button" name="week" value="일">
+					<div class="nego-wrap"><input type="checkbox" name="weekNego" value="협의"><p>협의가능</p></div>
+				</div>
+			</div>
+			<div class="add-time">
+				<h3>일하는 시간</h3>
+				<div class="time-wrap">
+					<select name="startTime">
+						<option value="00:00">00:00</option>
+						<option value="00:30">00:30</option>
+						<option value="01:00">01:00</option>
+						<option value="01:30">01:30</option>
+						<option value="02:00">02:00</option>
+						<option value="02:30">02:30</option>
+						<option value="03:00">03:00</option>
+						<option value="03:30">03:30</option>
+						<option value="04:00">04:00</option>
+						<option value="04:30">04:30</option>
+						<option value="05:00">05:00</option>
+						<option value="05:30">05:30</option>
+						<option value="06:00">06:00</option>
+						<option value="06:30">06:30</option>
+						<option value="07:00">07:00</option>
+						<option value="07:30">07:30</option>
+						<option value="08:00">08:00</option>
+						<option value="08:30">08:30</option>
+						<option value="09:00" selected>09:00</option>
+						<option value="09:30">09:30</option>
+						<option value="10:00">10:00</option>
+						<option value="10:30">10:30</option>
+						<option value="11:00">11:00</option>
+						<option value="11:30">11:30</option>
+						<option value="12:00">12:00</option>
+						<option value="12:30">12:30</option>
+						<option value="13:00">13:00</option>
+						<option value="13:30">13:30</option>
+						<option value="14:00">14:00</option>
+						<option value="14:30">14:30</option>
+						<option value="15:00">15:00</option>
+						<option value="15:30">15:30</option>
+						<option value="16:00">16:00</option>
+						<option value="16:30">16:30</option>
+						<option value="17:00">17:00</option>
+						<option value="17:30">17:30</option>
+						<option value="18:00">18:00</option>
+						<option value="18:30">18:30</option>
+						<option value="19:00">19:00</option>
+						<option value="19:30">19:30</option>
+						<option value="20:00">20:00</option>
+						<option value="20:30">20:30</option>
+						<option value="21:00">21:00</option>
+						<option value="21:30">21:30</option>
+						<option value="22:00">22:00</option>
+						<option value="22:30">22:30</option>
+						<option value="23:00">23:00</option>
+						<option value="23:30">23:30</option>
+					</select>
+					<p>~</p>
+					<select name="endTime">
+						<option value="00:00">00:00</option>
+						<option value="00:30">00:30</option>
+						<option value="01:00">01:00</option>
+						<option value="01:30">01:30</option>
+						<option value="02:00">02:00</option>
+						<option value="02:30">02:30</option>
+						<option value="03:00">03:00</option>
+						<option value="03:30">03:30</option>
+						<option value="04:00">04:00</option>
+						<option value="04:30">04:30</option>
+						<option value="05:00">05:00</option>
+						<option value="05:30">05:30</option>
+						<option value="06:00">06:00</option>
+						<option value="06:30">06:30</option>
+						<option value="07:00">07:00</option>
+						<option value="07:30">07:30</option>
+						<option value="08:00">08:00</option>
+						<option value="08:30">08:30</option>
+						<option value="09:00">09:00</option>
+						<option value="09:30">09:30</option>
+						<option value="10:00">10:00</option>
+						<option value="10:30">10:30</option>
+						<option value="11:00">11:00</option>
+						<option value="11:30">11:30</option>
+						<option value="12:00">12:00</option>
+						<option value="12:30">12:30</option>
+						<option value="13:00">13:00</option>
+						<option value="13:30">13:30</option>
+						<option value="14:00">14:00</option>
+						<option value="14:30">14:30</option>
+						<option value="15:00">15:00</option>
+						<option value="15:30">15:30</option>
+						<option value="16:00">16:00</option>
+						<option value="16:30">16:30</option>
+						<option value="17:00">17:00</option>
+						<option value="17:30">17:30</option>
+						<option value="18:00" selected>18:00</option>
+						<option value="18:30">18:30</option>
+						<option value="19:00">19:00</option>
+						<option value="19:30">19:30</option>
+						<option value="20:00">20:00</option>
+						<option value="20:30">20:30</option>
+						<option value="21:00">21:00</option>
+						<option value="21:30">21:30</option>
+						<option value="22:00">22:00</option>
+						<option value="22:30">22:30</option>
+						<option value="23:00">23:00</option>
+						<option value="23:30">23:30</option>
+					</select>
+				</div>
+				<div class="nego-wrap"><input type="checkbox" name="timeNego" value="협의"><p>협의가능</p></div>
+			</div>
+			
+			<div class="add-detail">
+				<h3>상세정보</h3>
+				<input type="text" name="detail" placeholder="예) 업무 예시, 근무 여건, 지원자가 갖추어야 할 능력, 우대 사항 등" value="${jobAdd.detail}">
+			</div>
+			<button onclick="formCheck(this.form)">작성 완료</button>
+		</div>
+	</div>
+	<!-- //Main -->
+		
+	<!-- Main -->
+	<div class="post-wrap">
+		<div class="slide-img">
+			<img alt="" src="img/job-post-img.jpg">
+		</div>
+		<div class="id-section">
+			<div class="id-section-left">
+				<div class="id-img"><img src=""></div>
+				<div class="id-name">당근당근</div>
+				<div class="id-address">부평동</div>
+			</div>
+			<div class="id-section-right">
+				<div class="dgree">36.9℃</div>
+				<div class="dgree-level"></div>
+				<div class="icon"></div>
+				<div class="manner-dgree">매너온도</div>
+			</div>
+		</div>
+		<hr>
+		<div class="title">
+			<div class="title-main">[부평역]주5일/4시간/130~150만원/홍보/상담/초보 경단가능</div>
+			<div class="title-name">당근당근</div>
+			<div class="title-date">약 1년 전 작성</div>
+		</div>
+		<div class="info">
+			<div class="info-title">정보</div>
+			<div class="info-content">월급 103만원</div>
+			<div class="info-content">인천 부평구 광장로 4</div>
+			<div class="info-content">월~금 협의</div>
+			<div class="info-content">10:00~16:00 협의</div>
+		</div>
+		<div class="detail">
+			<div class="detail-title">상세 내용</div>
+			<div class="detail-content">룰루랄라</div>
+		</div>
+		<div class="address">
+			<div class="naver-map">
+				<!-- Naver Map API -->
+				naver map api
+				<!-- //Naver Map API -->
+			</div>
+			<div class="address-detail">인천 부평구 광장로4</div>
+		</div>
+		<div class="recommand">
+			<div class="posts">
+				<a href="https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/realty-posts" class="">
+					<article>
+						<div class="posts-img"><img alt="" src="img/job-post-img.jpg"></div>
+						<div class="posts-content">
+							<div class="posts-title">전화업무(아웃바운드) 10시-4시까지 구합니다</div>
+							<div class="posts-id">콜센터</div>
+							<div class="posts-address">경기도 부천시 상동</div>
+							<div class="posts-amount">월급 1,500,000</div>
+						</div>
+					</article>
+				</a>
+			</div>
+		</div>
+		
+		
+	</div>
+	<!-- //Main -->
+	
+	<!-- Footer -->
+	<div id="footer"></div>
+	<!-- //Footer -->
+</body>
+</html>
