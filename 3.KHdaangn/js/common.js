@@ -64,12 +64,21 @@ function enterkey() {
 	   }
 }
 
+/* 삭제 버튼 */
+/*
 $("#delete_btn").on("click", function(e){
 	$("#jobPost").attr("action", "${pageContext.request.contextPath}/jobs/delete/${jobInfo.jobBId}");
 	$("#jobPost").attr("method", "post");
 	$("#jobPost").submit();
 });
+*/
+var eventTarget = document.getElementsByClassName('btn_delete')
 
+	for (var i=0; i<eventTarget.length; i++) {
+		eventTarget[i].addEventListener('click', function() {
+			console.log('event동작')
+	})
+}
 
 /* Kakao Map Api */
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

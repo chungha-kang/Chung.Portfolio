@@ -14,6 +14,7 @@
 		    $("#footer").load("module/footer.html");
 		});
 	</script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d829335a9dced379b8d992c97cf1140"></script>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
 		<div class="id-section">
 			<div class="id-section-left">
 				<div class="id-img"><img src=""></div>
-				<h2>당근당근</h2>>
+				<h2>당근당근</h2>
 				<div class="id-address">부평동</div>
 			</div>
 			<div class="id-section-right">
@@ -52,7 +53,8 @@
 					<button onclick="location.href='https://chungha-kang.github.io/Chung.Portfolio/3.KHdaangn/jobs-modify'">수정</button>
 				</div>
 				<div class="post-deleteBtn">
-					<button id="deleteBtn">삭제</button>
+					<button class="btn_delete" id="deleteBtn">삭제</button>
+					<button type="button" class="btn_delete">Delete</button>
 				</div>
 			</div>
 		</div>
@@ -77,7 +79,7 @@
 			<div class="address-detail">인천 부평구 광장로4</div>
 		</div>
 		<div class="recommand">
-			<h2>${detailInfo.addressName} 근처 알바</h2>
+			<h2>부천시 상동 근처 알바</h2>
 			<!-- forEach jobsList 구현후 삭제 -->
 			<div class="posts">
 				<div class="post">
@@ -116,48 +118,5 @@
 	<div id="footer"></div>
 	<!-- //Footer -->
 	
-	<!-- Map API -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a743795c413a66f188d58c0f531e9f3b&libraries=services"></script>
-	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		        level: 3 // 지도의 확대 레벨
-		    };  
-		
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		
-		// 주소-좌표 변환 객체를 생성합니다
-		var geocoder = new kakao.maps.services.Geocoder();
-		
-		var address = "${detailInfo.address}";
-		console.log(address);
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch(address, function(result, status) {
-		
-		    // 정상적으로 검색이 완료됐으면 
-		     if (status === kakao.maps.services.Status.OK) {
-		
-		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-		
-		        // 결과값으로 받은 위치를 마커로 표시합니다
-		        var marker = new kakao.maps.Marker({
-		            map: map,
-		            position: coords
-		        });
-		
-		        // 인포윈도우로 장소에 대한 설명을 표시합니다
-		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-		        });
-		        infowindow.open(map, marker);
-		
-		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-		        map.setCenter(coords);
-		    } 
-		});    
-	</script>
-	<!-- //Map API -->
 </body>
 </html>
