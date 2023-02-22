@@ -1,3 +1,35 @@
+body {background-color: blanchedalmond;}
+html{font: 62.5%;}
+ul, li {margin: 0px; padding: 0;}
+
+.list-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.list {
+  width: 21rem;
+  height: 42.5rem;
+  margin: 2rem auto 0;
+  text-align: center;
+  background-image: url('../public/img/001.png');
+  background-position: center;
+  background-size: 38rem;
+  background-repeat: no-repeat;
+  filter: drop-shadow(5px 10px 10px rgb(0, 0, 0, 0.6));
+}
+.list > ul {
+  list-style: none;
+}
+.list > header {
+  margin: 3rem auto 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* 초기 생성 CSS */
+/*
 .App {
   text-align: center;
 }
@@ -36,3 +68,4 @@
     transform: rotate(360deg);
   }
 }
+*/
