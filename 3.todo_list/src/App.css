@@ -1,6 +1,15 @@
 body {background-color: blanchedalmond;}
 html{font: 62.5%;}
 ul, li {margin: 0px; padding: 0;}
+a {text-decoration-line: none;}
+a:visited {color: black;}
+
+.header > a {
+  text-decoration-color: orange;
+}
+/* .header > a:visited {
+  color: orange;
+} */
 
 .list-wrap {
   width: 100%;
@@ -20,6 +29,9 @@ ul, li {margin: 0px; padding: 0;}
 }
 .list > ul {
   list-style: none;
+}
+.list li > a {
+  color: black;
 }
 .list > header {
   margin: 3rem auto 0;
