@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 function Header(props) {
   return <header>
-    <p>{Date}(Date)</p>
+    <p>(Date)</p>
     <h2><a href='/'>{props.title}</a></h2>
   </header>
 }
@@ -19,40 +19,59 @@ function Create(props) {
 }
 function Input() {
   return <>
-    <input type="text" value="할 일을 입력하세요" />
+    <input type="text" placeholder="할 일을 입력하세요" />
     <input type="button" value="+" />
   </>
 }
 
 // TODO LIST(할일 리스트)
 function List(props) {
-  const lis = []
-  for(let i=0; i<props.topics.length; i++) {
-    let t = props.topics[i];
-    lis.push(<>
+  const [selectedItemId, setSelectedItemId] = useState(null);
+  
+  const handleClick = (event, itemId) => {
+    event.preventDefault();
+    if (selectedItemId === itemId) {
+      setSelectedItemId(null);
+    } else {
+      setSelectedItemId(itemId);
+    }
+  }
+
+  const lis = props.topics.map((t) => {
+    const isClicked = t.click == 'true';
+
+    return (
       <li key={t.id}>
-        <input type="checkbox" />
-        <a id={t.id} href="/" onClick={(event)=> {
-          event.preventDefault();
-          props.onChangeMode(Number(event.target.id));
-        }}>{t.todo}</a>
+      <input type="checkbox" />
+        <a href="/" isClicked={isClicked} onClick={(event) => handleClick(event, t.id)}>{t.todo}</a>
         <input type="checkbox" value="⭐️" />
         <input type="button" value="-" />
+        {t.id === selectedItemId && 
+          <p><input type="text" value={t.detail} /></p>
+        }
       </li>
-      <li key={t.detail}>
-        {props.content}
-      </li>
-    </>)
-  }
-  return <ul>
-    {lis}
-  </ul>
-}
-function Todo(props) {
-  return <article>
-    <h2>{props.todo}</h2>
-    {props.detail}
-  </article>
+    )
+  })
+
+  // const lis = []
+  // for(let i=0; i<props.topics.length; i++) {
+  //   let t = props.topics[i];
+  //   lis.push(
+  //     <li key={t.id}>
+  //       <input type="checkbox" />
+  //       <a id={t.id} href="/" onClick={(event)=> {
+  //         event.preventDefault();
+  //         props.onChangeMode(Number(event.target.id));
+  //       }}>{t.todo}</a>
+  //       <input type="checkbox" value="⭐️" />
+  //       <input type="button" value="-" />
+  //         {t.id === props.selectedId && 
+  //           <input type="text" value={t.detail} />
+  //         }
+  //     </li>
+  //     )
+  // }
+  return <ul>{lis}</ul>;
 }
 
 function App() {
@@ -66,9 +85,7 @@ function App() {
   ]);
   // TodoList READ (할일 자세히 보기)
   let content = null;
-  if (mode === 'NON') {
-  // } else if(mode === 'DETAIL') {
-  } else if(mode === 'DETAIL' && id !== null) {
+  if (mode === 'DETAIL' && id !== null) {
     let todo, detail = null;
     for(let i=0; i<topics.length; i++) {
       if(topics[i].id === id) {
@@ -76,7 +93,7 @@ function App() {
         detail = topics[i].detail;
       }
     }
-    content = <Todo todo={todo} detail={detail}></Todo>
+    content = <article>{detail}</article>
   }
   // TodoList CREATE (할일 추가)
   return (
