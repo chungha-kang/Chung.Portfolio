@@ -10,17 +10,19 @@ function Header(props) {
 
 // TODO LIST CREATE(할일 추가)
 function Create(props) {
-  return <form onSubmit={event=>{
-    console.log(props);
-    const todo = event.target.todo.value;
-
-  }}>
-  </form>
-}
-function Input() {
   return <>
-    <input type="text" placeholder="할 일을 입력하세요" />
-    <input type="button" value="+" />
+    <form onSubmit={event=> {
+      event.preventDefault();
+      const todo = event.target.todo.value;
+      props.onCreate(todo);
+    }}>
+      <input type="text" name="todo" placeholder="할 일을 입력하세요" />
+      <a href="/create" onClick={event=> {
+        // setMode('CREATE');
+        }}>
+        <input type="submit" value="+" />
+      </a>
+    </form>
   </>
 }
 
@@ -52,32 +54,13 @@ function List(props) {
       </li>
     )
   })
-
-  // const lis = []
-  // for(let i=0; i<props.topics.length; i++) {
-  //   let t = props.topics[i];
-  //   lis.push(
-  //     <li key={t.id}>
-  //       <input type="checkbox" />
-  //       <a id={t.id} href="/" onClick={(event)=> {
-  //         event.preventDefault();
-  //         props.onChangeMode(Number(event.target.id));
-  //       }}>{t.todo}</a>
-  //       <input type="checkbox" value="⭐️" />
-  //       <input type="button" value="-" />
-  //         {t.id === props.selectedId && 
-  //           <input type="text" value={t.detail} />
-  //         }
-  //     </li>
-  //     )
-  // }
   return <ul>{lis}</ul>;
 }
 
 function App() {
   const [mode, setMode] = useState('NON');
   const [id, setId] = useState(null);
-  // const [nextId, setNextId] = useState(4);
+  const [nextId, setNextId] = useState(4);
   const [topics, setTopics] = useState([
     {id:1, todo: '할일1', detail: '자세한 내용1', check: 'true', import: 'true'},
     {id:2, todo: '할일2', detail: '자세한 내용2', check: 'true', import: 'false'},
@@ -94,14 +77,23 @@ function App() {
       }
     }
     content = <article>{detail}</article>
+    // TodoList CREATE (할일 추가)
+  } else if(mode === 'CREATE') {
+    content = <Create onCreate={(_todo)=> {
+      const newTopic = {id: nextId, todo: _todo}
+      topics.push(newTopic);
+      setTopics(topics);
+    }}></Create>
   }
-  // TodoList CREATE (할일 추가)
+  
+
   return (
     <div className="list-wrap">
       <div className="list">
         <Header title="TODO LIST"></Header>
-        <Input></Input>
+        <Create></Create>
         {/* text-decoration-line: line-through 만들기 */}
+        {/* READ */}
         <List topics={topics} content={content} onChangeMode={(clickedId)=> {
           if (mode === 'NON' || id != clickedId) {
             setMode('DETAIL');
@@ -111,6 +103,7 @@ function App() {
             setId(null);
           }
         }}></List>
+        {/* //READ */}
         {content}
       </div>
     </div>
