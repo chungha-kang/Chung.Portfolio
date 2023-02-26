@@ -10,20 +10,23 @@ function Header(props) {
 
 // TODO LIST CREATE(할일 추가)
 function Create(props) {
-  return <>
-    <form onSubmit={event=> {
-      event.preventDefault();
-      const todo = event.target.todo.value;
-      props.onCreate(todo);
-    }}>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const todo = event.target.todo.value;
+    props.onCreate(todo);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
       <input type="text" name="todo" placeholder="할 일을 입력하세요" />
-      <a href="/create" onClick={event=> {
+      {/* <a href="/create" onClick={event=> {
         // setMode('CREATE');
         }}>
         <input type="submit" value="+" />
-      </a>
+      </a> */}
+      <button type="submit">+</button>
     </form>
-  </>
+  );
 }
 
 // TODO LIST(할일 리스트)
@@ -66,6 +69,17 @@ function App() {
     {id:2, todo: '할일2', detail: '자세한 내용2', check: 'true', import: 'false'},
     {id:3, todo: '할일3', detail: '자세한 내용3', check: 'false', import: 'false'},
   ]);
+  
+  const handleCreate = (todo) => {
+    const newTopic = {id: nextId, todo: todo}
+    const newTopics = [...topics, newTopic]
+    newTopics.push(newTopic);
+    setTopics(newTopics);
+    setTopics('NON');
+    setId(nextId);
+    setNextId(nextId+1);
+  }
+
   // TodoList READ (할일 자세히 보기)
   let content = null;
   if (mode === 'DETAIL' && id !== null) {
@@ -78,20 +92,13 @@ function App() {
     }
     content = <article>{detail}</article>
     // TodoList CREATE (할일 추가)
-  } else if(mode === 'CREATE') {
-    content = <Create onCreate={(_todo)=> {
-      const newTopic = {id: nextId, todo: _todo}
-      topics.push(newTopic);
-      setTopics(topics);
-    }}></Create>
-  }
+  } 
   
-
   return (
     <div className="list-wrap">
       <div className="list">
         <Header title="TODO LIST"></Header>
-        <Create></Create>
+        <Create onCreate={handleCreate}></Create>
         {/* text-decoration-line: line-through 만들기 */}
         {/* READ */}
         <List topics={topics} content={content} onChangeMode={(clickedId)=> {
