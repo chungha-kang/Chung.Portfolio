@@ -44,28 +44,54 @@ function List(props) {
         <input type="checkbox" />
         <a href="/" isClicked={isClicked} onClick={(event) => handleClick(event, t.id)}>{t.todo}</a>
         <input type="checkbox" value="⭐️" />
-        <input type="button" value="수정" />
+        {/* 업데이트(수정) 기능 보류..) */}
+        {/* <input type="button" value="수정" onClick={(event) => handleClick(event, t.id)} /> */}
         <input type="button" value="-" />
-        {t.id === selectedItemId && 
+        {t.id === selectedItemId && <>
           <p><input type="text" value={t.detail} /></p>
-        }
+          </>}
       </li>
     )
   })
   return <ul>{lis}</ul>;
 }
+/*
+// 업데이트(수정) 기능 보류..
+function Update(props) {
+  const [todo, setTodo] = useState(props.todo);
+  const [detail, setDetail] = useState(props.detail);
+  return <>
+  <h2>수정</h2>
+   <form onSubmit={event=>{
+      event.preventDefault();
+      const todo = event.target.todo.value;
+      const detail = event.target.detail.value;
+      props.onUpdate(todo, detail);
+    }}>
+      <p><input type="text" name='todo' placeholder='할 일을 입력하세요' value={todo} onChange={event=> {
+        setTodo(event.target.value);
+      }}/></p>
+      <p><input type="text" name='detail' placeholder='자세한 내용을 입력하세요' value={detail} onChange={event=> {
+        setDetail(event.target.value);
+      }}/></p>
+      <input type="submit" value="저장"></input>
+    </form>
+  </>
+}
+*/
 
 function App() {
-  const [mode, setMode] = useState('NON');
+  const [mode, setMode] = useState('UPDATE');
   const [id, setId] = useState(null);
   const [nextId, setNextId] = useState(4);
   const [topics, setTopics] = useState([
-    {id:1, todo: '할일1', detail: '자세한 내용1', check: true, import: true},
-    {id:2, todo: '할일2', detail: '자세한 내용2', check: true, import: false},
-    {id:3, todo: '할일3', detail: '자세한 내용3', check: false, import: false}
+    {id:1, todo: '할일1', detail: '자세한 내용1', isDone: true, isImport: true},
+    {id:2, todo: '할일2', detail: '자세한 내용2', isDone: true, isImport: false},
+    {id:3, todo: '할일3', detail: '자세한 내용3', isDone: false, isImport: false}
   ]);
   // TodoList READ (할일 자세히 보기)
   let content = null;
+  let contextControl = null;
   if (mode === 'DETAIL' && id !== null) {
     let todo, detail = null;
     for(let i=0; i<topics.length; i++) {
@@ -75,6 +101,14 @@ function App() {
       }
     }
     content = <article>{detail}</article>
+    contextControl = <button onClick={event => {
+      event.preventDefault();
+      setMode('UPDATE');
+    }}>수정</button>
+    // <a href={'/update/'+id} onClick={event=> {
+    //   event.preventDefault();
+    //   setMode('UPDATE');
+    // }}>Update</a>
     // TodoList CREATE (할일 추가)
   } else if(mode === 'CREATE') {  // CREATE 일 때
     content = <Create onCreate={(todo)=>{
@@ -85,6 +119,29 @@ function App() {
       setId(nextId);
       setNextId(nextId+1);
     }}></Create>
+    /* 
+    // 업데이트(수정) 기능...보류
+  } else if(mode === 'UPDATE') {
+    let todo, detail = null;
+    for(let i=0; i<topics.length; i++) {
+      if(topics[i].id === id) {
+        todo = topics[i].todo;
+        detail = topics[i].detail;
+      }
+    }
+    content = <Update todo={todo} detail={detail} onUpdate={(todo, detail)=> {
+      const newTopics = [...topics]
+      const updateTopic = {id: id, todo: todo, detail: detail}
+      for(let i=0; i<newTopics.length; i++) {
+        if(newTopics[i].id === id) {
+          newTopics[i] = updateTopic;
+          break;
+        }
+      }
+      setTopics(newTopics);
+      setMode('DETAIL');
+    }}></Update>
+    */
   }
   
   return (
@@ -111,7 +168,6 @@ function App() {
             setId(null);
           }
         }}></List>
-        {/* //READ */}
         {content}
       </div>
     </div>
