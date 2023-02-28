@@ -2,6 +2,8 @@ import './App.css';
 import {useState} from 'react';
 
 function Header(props) {
+  const date =  new Date()
+
   return <header>
     <p>(Date)</p>
     <h2><a href='/'>{props.title}</a></h2>
@@ -35,18 +37,20 @@ function List(props) {
       setSelectedItemId(itemId);
     }
   }
+  const handleDelete = (id) => {
+    const newTopics = props.topics.filter(topic => topic.id !== id);
+    props.onDelete(newTopics);
+  }
 
   const lis = props.topics.map((t) => {
     const isClicked = t.click === 'true';
-
     return (
       <li key={t.id}>
         <input type="checkbox" />
         <a href="/" isClicked={isClicked} onClick={(event) => handleClick(event, t.id)}>{t.todo}</a>
         <input type="checkbox" value="⭐️" />
-        {/* 업데이트(수정) 기능 보류..) */}
-        {/* <input type="button" value="수정" onClick={(event) => handleClick(event, t.id)} /> */}
-        <input type="button" value="-" />
+        <input type="button" value="수정" onClick={(event) => handleClick(event, t.id)} />
+        <input type="button" value="삭제" onClick={()=> handleDelete(t.id)} />
         {t.id === selectedItemId && <>
           <p><input type="text" value={t.detail} /></p>
           </>}
@@ -55,7 +59,7 @@ function List(props) {
   })
   return <ul>{lis}</ul>;
 }
-/*
+
 // 업데이트(수정) 기능 보류..
 function Update(props) {
   const [todo, setTodo] = useState(props.todo);
@@ -78,7 +82,7 @@ function Update(props) {
     </form>
   </>
 }
-*/
+
 
 function App() {
   const [mode, setMode] = useState('UPDATE');
@@ -101,15 +105,12 @@ function App() {
       }
     }
     content = <article>{detail}</article>
-    contextControl = <button onClick={event => {
+    contextControl = <a href={'/update/'+id} onClick={event=> {
       event.preventDefault();
       setMode('UPDATE');
-    }}>수정</button>
-    // <a href={'/update/'+id} onClick={event=> {
-    //   event.preventDefault();
-    //   setMode('UPDATE');
-    // }}>Update</a>
-    // TodoList CREATE (할일 추가)
+    }}>Update</a>
+
+    //TodoList CREATE (할일 추가)
   } else if(mode === 'CREATE') {  // CREATE 일 때
     content = <Create onCreate={(todo)=>{
       const newTopic = {id: nextId, todo: todo}
@@ -119,7 +120,7 @@ function App() {
       setId(nextId);
       setNextId(nextId+1);
     }}></Create>
-    /* 
+    
     // 업데이트(수정) 기능...보류
   } else if(mode === 'UPDATE') {
     let todo, detail = null;
@@ -140,8 +141,7 @@ function App() {
       }
       setTopics(newTopics);
       setMode('DETAIL');
-    }}></Update>
-    */
+    }}></Update> 
   }
   
   return (
@@ -159,7 +159,11 @@ function App() {
         }}></Create>
         {/* text-decoration-line: line-through 만들기 */}
         {/* READ */}
-        <List topics={topics} content={content} onChangeMode={(clickedId)=> {
+        <List 
+          topics={topics} 
+          onDelete={(newTopics) => setTopics(newTopics)}
+          content={content} 
+          onChangeMode={(clickedId)=> {
           if (mode === 'NON' || id !== clickedId) {
             setMode('DETAIL');
             setId(clickedId);
@@ -169,6 +173,7 @@ function App() {
           }
         }}></List>
         {content}
+        {contextControl}
       </div>
     </div>
   );
