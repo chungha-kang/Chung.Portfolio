@@ -42,20 +42,22 @@ function List(props) {
     setIsClickedUpdate(null);
   }
 
+  // DELETE 관련 함수
   const handleDelete = (id) => {
     const newTopics = props.topics.filter(topic => topic.id !== id);
     props.onDelete(newTopics);
   }
   
+  // List
   const lis = props.topics.map((t) => (
     <li key={t.id}>
       <input type="checkbox" />
       <a href="/" onClick={(event) => {
         event.preventDefault();
-        setIsClickedRead(t.id)
+        setIsClickedRead(prev => prev === t.id ? null : t.id) // 수정
       }}>{t.todo}</a>
       <input type="checkbox" value="⭐️" />
-      <input type="button" value="modify(Update)" onClick={() => setIsClickedUpdate(t.id)}/>
+      <input type="button" value="modify(Update)" onClick={() => setIsClickedUpdate(prev => prev === t.id ? null : t.id)}/>
       <input type="button" value="Delete" onClick={()=> handleDelete(t.id)}/>
       {isClickedRead === t.id && (
         <p><input type="text" value={t.detail} /></p>
@@ -63,12 +65,14 @@ function List(props) {
       {isClickedUpdate === t.id && (
         <Update todo={t.todo} detail={t.detail} 
           onUpdate={(todo, detail) => handleUpdate(t.id, todo, detail)}
+          setIsClickedUpdate={setIsClickedUpdate}
         ></Update>
       )}
     </li>
   ));
   return <ul>{lis}</ul>;
 }
+// UPDATE 관련 함수
 function Update(props) {
   const [todo, setTodo] = useState(props.todo);
   const [detail, setDetail] = useState(props.detail);
@@ -78,6 +82,9 @@ function Update(props) {
       const todo = event.target.todo.value;
       const detail = event.target.detail.value;
       props.onUpdate(todo, detail);
+      setTodo(props.todo);
+      setDetail(props.detail);
+      props.setIsClickedUpdate(null);
     }}>
       <p><input type="text" name='todo' value={todo} onChange={event=> {
         setTodo(event.target.value);
@@ -110,7 +117,11 @@ function App() {
           setId(nextId);
           setNextId(nextId+1);
         }}></Create>
-        <List topics={topics} onDelete={(newTopics => setTopics(newTopics))}></List>
+        <List 
+          topics={topics} 
+          onDelete={(newTopics) => setTopics(newTopics)} 
+          onUpdate={(newTopics) => setTopics(newTopics)}
+        ></List>
       </div>
     </div>
   );
