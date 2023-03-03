@@ -4,6 +4,14 @@ ul, li {margin: 0px; padding: 0;}
 a {text-decoration-line: none;}
 a:visited {color: black;}
 
+li.checked a {
+  text-decoration: line-through;
+}
+
+.text-decorated {
+  text-decoration: line-through;
+}
+
 .header > a {
   text-decoration-color: orange;
 }

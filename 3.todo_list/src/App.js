@@ -28,6 +28,7 @@ function Create(props) {
 function List(props) {
   const [isClickedRead, setIsClickedRead] = useState(null);
   const [isClickedUpdate, setIsClickedUpdate] = useState(null);
+  const [selectedItem, setSelectedItem] = useState([]);
 
   // Update 컴포넌트에서 onUpdate 함수 호출시 실행 되는 함수
   const handleUpdate = (id, todo, detail) => {
@@ -49,27 +50,50 @@ function List(props) {
   }
   
   // List
-  const lis = props.topics.map((t) => (
-    <li key={t.id}>
-      <input type="checkbox" />
-      <a href="/" onClick={(event) => {
-        event.preventDefault();
-        setIsClickedRead(prev => prev === t.id ? null : t.id) // 수정
-      }}>{t.todo}</a>
-      <input type="checkbox" value="⭐️" />
-      <input type="button" value="modify(Update)" onClick={() => setIsClickedUpdate(prev => prev === t.id ? null : t.id)}/>
-      <input type="button" value="Delete" onClick={()=> handleDelete(t.id)}/>
-      {isClickedRead === t.id && (
-        <p><input type="text" value={t.detail} /></p>
-      )}
-      {isClickedUpdate === t.id && (
-        <Update todo={t.todo} detail={t.detail} 
-          onUpdate={(todo, detail) => handleUpdate(t.id, todo, detail)}
-          setIsClickedUpdate={setIsClickedUpdate}
-        ></Update>
-      )}
-    </li>
-  ));
+  const lis = props.topics.map((t) => {
+    const isUpdateActive = isClickedUpdate === t.id;  // Update 버튼 표시 및 감출때 사용 (true => 표시 / false => 감추기) => 버튼 클릭시 수정 버튼이 수정 사항 있을 경우 수정, 없을 경우 뒤로돌아가기(취소)에 사용
+    return (
+      <li key={t.id}>
+        <input type="checkbox" 
+          checked={selectedItem.includes(t.id)}
+          onChange={() => {
+            setSelectedItem(prev => {
+              if(prev.includes(t.id)) {
+                return prev.filter(id => id !== t.id);
+              } else {
+                return [...prev, t.id];
+              }
+            })
+          }}
+        />
+        <a href="/" 
+        style={{
+          textDecoration: selectedItem.includes(t.id) ? 'line-through' : 'none'
+        }}
+        onClick={(event) => {
+          event.preventDefault();
+          setIsClickedRead(prev => prev === t.id ? null : t.id) // 클릭 할때마다 상태 변경하기
+          setIsClickedUpdate(null);
+        }}>{t.todo}</a>
+        <input type="checkbox" value="⭐️" />
+        <input 
+          type="button" value={isUpdateActive ? "취소" : "수정"}
+          onClick={() => {
+          setIsClickedUpdate(prev => prev === t.id ? null : t.id)
+          setIsClickedRead(null);
+        }} />
+        <input type="button" value="Delete" onClick={()=> handleDelete(t.id)}/>
+        {isClickedRead === t.id && (
+          <p><input type="text" value={t.detail} /></p>
+        )}
+        {isUpdateActive && (
+          <Update todo={t.todo} detail={t.detail} 
+            onUpdate={(todo, detail) => handleUpdate(t.id, todo, detail)}
+          ></Update>
+        )}
+      </li>
+    );
+  });
   return <ul>{lis}</ul>;
 }
 // UPDATE 관련 함수
@@ -84,7 +108,6 @@ function Update(props) {
       props.onUpdate(todo, detail);
       setTodo(props.todo);
       setDetail(props.detail);
-      props.setIsClickedUpdate(null);
     }}>
       <p><input type="text" name='todo' value={todo} onChange={event=> {
         setTodo(event.target.value);
