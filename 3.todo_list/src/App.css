@@ -4,21 +4,6 @@ ul, li {margin: 0px; padding: 0;}
 a {text-decoration-line: none;}
 a:visited {color: black;}
 
-li.checked a {
-  text-decoration: line-through;
-}
-
-.text-decorated {
-  text-decoration: line-through;
-}
-
-.header > a {
-  text-decoration-color: orange;
-}
-/* .header > a:visited {
-  color: orange;
-} */
-
 .list-wrap {
   width: 100%;
   display: flex;
@@ -46,46 +31,53 @@ li.checked a {
   display: flex;
   justify-content: space-around;
 }
-
-
-/* 초기 생성 CSS */
-/*
-.App {
-  text-align: center;
+.list header h2 > a {
+  color: white; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.list header > p {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Create */
+.list form .inputUnderLine {
+  margin: 1rem auto 1.2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 1px solid gray;
+  opacity: 0.7;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list form .inputBtn {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.6rem;
+  color: white;
+  font-weight: 800;
+  border: none;
+  border-radius: 50%;
+  background-color: skyblue;
 }
-*/
+
+/* List */
+.list li .inputBtn {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.6rem;
+  color: white;
+  font-weight: 800;
+  border: none;
+  border-radius: 50%;
+  background-color: skyblue;
+}
+
+.list li > a {
+  margin: 1rem 5.1rem 1rem 0.5rem;
+  font-size: 1.2rem;
+}
+.list li > hr {
+  width: 70%;
+  color: gray;
+  opacity: 0.5;
+}
+
