@@ -3,10 +3,33 @@ import {useState} from 'react';
 import './App.css';
 
 function Header() {
+  const date = new Date();
+  
+  function getShortMonthName(month) {
+    const shorthMonths = [
+      "JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+      "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ];
+    return shorthMonths[month];
+  }
+  function getShortDayName(day) {
+    const shorthDays = [
+      "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"
+    ];
+    return shorthDays[day];
+  }
+
   return (
     <header>
       <h2><a href='/'>Todo List</a></h2>
-      <p>Date</p>
+      <div>
+        <p>{date.getDate()}</p>
+        <p>{getShortDayName(date.getDay())}</p>
+      </div>
+      <div>
+        <p>{getShortMonthName(date.getMonth())}</p>
+        <p>{date.getFullYear()}</p>
+      </div>
     </header>
   );
 }
