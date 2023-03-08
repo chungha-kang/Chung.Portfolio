@@ -59,7 +59,6 @@ function Create(props) {
 function List(props) {
   const [isClickedRead, setIsClickedRead] = useState(null);
   const [isClickedUpdate, setIsClickedUpdate] = useState(null);
-  const [selectedItem, setSelectedItem] = useState([]);
 
   // Update 컴포넌트에서 onUpdate 함수 호출시 실행 되는 함수
   const handleUpdate = (id, todo, detail) => {

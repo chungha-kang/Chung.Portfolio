@@ -1,5 +1,6 @@
 {
-  "name": "4.todo_list",
+  "name": "3.todo_list",
+  "homepage": "file:///Users/haeng/git/Chung.Portfolio/3.todo_list/build",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
