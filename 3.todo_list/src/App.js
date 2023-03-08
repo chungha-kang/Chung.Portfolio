@@ -1,5 +1,11 @@
 import React from 'react';
 import {useState} from 'react';
+import '@fortawesome/fontawesome-free/css/all.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPenToSquare} from '@fortawesome/free-solid-svg-icons';
+import {faCheck} from '@fortawesome/free-solid-svg-icons';
+import {faStar} from '@fortawesome/free-regular-svg-icons';
+import {faTrashCan} from '@fortawesome/free-regular-svg-icons';
 import './App.css';
 
 function Header() {
@@ -22,13 +28,15 @@ function Header() {
   return (
     <header>
       <h2><a href='/'>Todo List</a></h2>
-      <div>
-        <p>{date.getDate()}</p>
-        <p>{getShortDayName(date.getDay())}</p>
-      </div>
-      <div>
-        <p>{getShortMonthName(date.getMonth())}</p>
-        <p>{date.getFullYear()}</p>
+      <div className='date'>
+        <div className='day'>
+          <p>{date.getDate()}</p>
+          <p>{getShortDayName(date.getDay())}</p>
+        </div>
+        <div className='year'>
+          <p>{getShortMonthName(date.getMonth())}</p>
+          <p>{date.getFullYear()}</p>
+        </div>
       </div>
     </header>
   );
@@ -43,7 +51,7 @@ function Create(props) {
       event.target.todo.value = "";
     }}>
       <input className="inputUnderLine" type="text" name='todo' placeholder='할 일을 입력하세요' />
-      <input className="inputBtn" type="submit" value="+"></input>
+      <input className="inputBtn btn" type="submit" value="+"></input>
     </form>
   );
 }
@@ -89,27 +97,31 @@ function List(props) {
             })
           }}
         />
-        <a href="/" 
-        style={{
-          textDecoration: selectedItem.includes(t.id) ? 'line-through' : 'none'
-        }}
-        onClick={(event) => {
-          event.preventDefault();
-          setIsClickedRead(prev => prev === t.id ? null : t.id) // 클릭 할때마다 상태 변경하기
-          setIsClickedUpdate(null);
-        }}>{t.todo}</a>
-        <input type="checkbox" value="⭐️" />
         <input 
-          type="button" className='inputBtn'
-          value={isUpdateActive ? "🔃" : "🔃"}
+          style={{
+            textDecoration: selectedItem.includes(t.id) ? 'line-through' : 'none'
+          }}
+          className="todoList" type="text" value={t.todo} 
+          onClick={(event) => {
+            event.preventDefault();
+            setIsClickedRead(prev => prev === t.id ? null : t.id) // 클릭 할때마다 상태 변경하기
+            setIsClickedUpdate(null);
+          }}
+        />
+        <button type="checkbox" className="checkbox btn">
+          <FontAwesomeIcon icon={faStar} />
+        </button>
+        <button type="button btn" className="liBtn btn" 
           onClick={() => {
           setIsClickedUpdate(prev => prev === t.id ? null : t.id)
-          setIsClickedRead(null);
-        }} />
-        <input type="button" className='inputBtn'
-          value="-" onClick={()=> handleDelete(t.id)}/>
+          setIsClickedRead(null);}}>
+            <FontAwesomeIcon icon={faPenToSquare} />
+        </button>
+        <button type="button" className="liBtn btn" onClick={()=> handleDelete(t.id)}>
+          <FontAwesomeIcon icon={faTrashCan} />
+        </button>
         {isClickedRead === t.id && (
-          <p><input type="text" value={t.detail} /></p>
+          <p><input className="read" type="text" value={t.detail} /></p>
         )}
         {isUpdateActive && (
           <Update todo={t.todo} detail={t.detail} 
@@ -141,7 +153,7 @@ function Update(props) {
       <p><input type="text" name='detail' value={detail} onChange={event=> {
         setDetail(event.target.value);
       }}/></p>
-      <input type="submit" value="저장"></input>
+      <input className="editBtn btn" type="submit" value="수정"></input>
     </form>
   </>
 }
@@ -150,8 +162,8 @@ function App() {
   const [id, setId] = useState(null);
   const [nextId, setNextId] = useState(4);
   const [topics, setTopics] = useState([
-    {id:1, todo: '할일1', detail: '자세한 내용1', isDone: true, isImport: true},
-    {id:2, todo: '할일2', detail: '자세한 내용2', isDone: true, isImport: false},
+    {id:1, todo: '자바스크립트 공부하기', detail: 'Deep Dive 정독', isDone: true, isImport: true},
+    {id:2, todo: '리액트 공부하기', detail: '자세한 내용2', isDone: true, isImport: false},
     {id:3, todo: '할일3', detail: '자세한 내용3', isDone: false, isImport: false}
   ]);
   return (
