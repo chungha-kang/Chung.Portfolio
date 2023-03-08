@@ -117,9 +117,17 @@ a:visited {color: black;}
   width: 11.3rem;
   cursor: pointer;
   resize: none;
+  overflow: hidden;
+  translate: 0 0.4rem;
 }
 .list li .todoList:focus {
   outline: none;
+}
+.list li .checkbox {
+  color: skyblue;
+}
+.list li .checkbox:hover {
+  color: black;
 }
 .list li > hr {
   margin: 0.8rem 0;
@@ -129,8 +137,12 @@ a:visited {color: black;}
 }
 /* a태그 클릭시 등장하는 detail 부분 */
 .list li p .read {
+  margin-left: 2.2rem;
+  padding: 1rem;
   border: none;
-  margin-left: 1.5rem;
+  resize: none;
+  background-color: beige;
+  filter: drop-shadow(1px 2px 2px rgb(0, 0, 0, 0.2));
 }
 
 /* Update */

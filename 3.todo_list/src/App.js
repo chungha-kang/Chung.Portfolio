@@ -1,10 +1,10 @@
-import React from 'react';
 import {useState} from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 import '@fortawesome/fontawesome-free/css/all.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPenToSquare} from '@fortawesome/free-solid-svg-icons';
-import {faCheck} from '@fortawesome/free-solid-svg-icons';
-import {faStar} from '@fortawesome/free-regular-svg-icons';
+import {faStar as solidStar} from '@fortawesome/free-solid-svg-icons';
+import {faStar as regularStar} from '@fortawesome/free-regular-svg-icons';
 import {faTrashCan} from '@fortawesome/free-regular-svg-icons';
 import './App.css';
 
@@ -80,27 +80,44 @@ function List(props) {
     props.onDelete(newTopics);
   }
   
+  const handleIsDoneClick = (t) => {
+    const newTopics = props.topics.map((topic) => {
+      if (topic.id === t.id){
+        return {...topic, isDone: !topic.isDone};
+      } else {
+        return topic;
+      }
+    });
+    props.onUpdate(newTopics);
+  }
+
+  const handleImportClick = (t) => {
+    const newTopics = props.topics.map((topic) => {
+      if (topic.id === t.id){
+        return {...topic, isImport: !topic.isImport};
+      } else {
+        return topic;
+      }
+    });
+    props.onUpdate(newTopics);
+  };
+
+  
+
   // List
   const lis = props.topics.map((t) => {
     const isUpdateActive = isClickedUpdate === t.id;  // Update 버튼 표시 및 감출때 사용 (true => 표시 / false => 감추기) => 버튼 클릭시 수정 버튼이 수정 사항 있을 경우 수정, 없을 경우 뒤로돌아가기(취소)에 사용
     return (
       <li key={t.id}>
         <input type="checkbox" className='inputCB'
-          checked={selectedItem.includes(t.id)}
-          onChange={() => {
-            setSelectedItem(prev => {
-              if(prev.includes(t.id)) {
-                return prev.filter(id => id !== t.id);
-              } else {
-                return [...prev, t.id];
-              }
-            })
-          }}
+          checked={t.isDone}
+          onChange={() => handleIsDoneClick(t)}
         />
-        <input 
-          style={{
-            textDecoration: selectedItem.includes(t.id) ? 'line-through' : 'none'
-          }}
+        <TextareaAutosize
+          minRows={1}
+          maxRows={10}
+          defaultValue={'Textarea with auto height'} 
+          style={{textDecoration: t.isDone ? 'line-through' : 'none'}}
           className="todoList" type="text" value={t.todo} 
           onClick={(event) => {
             event.preventDefault();
@@ -108,8 +125,9 @@ function List(props) {
             setIsClickedUpdate(null);
           }}
         />
-        <button type="checkbox" className="checkbox btn">
-          <FontAwesomeIcon icon={faStar} />
+        <button type="checkbox" className="checkbox btn"
+          onClick={() => handleImportClick(t)}>
+          <FontAwesomeIcon icon={t.isImport ? solidStar : regularStar} />
         </button>
         <button type="button btn" className="liBtn btn" 
           onClick={() => {
@@ -121,7 +139,9 @@ function List(props) {
           <FontAwesomeIcon icon={faTrashCan} />
         </button>
         {isClickedRead === t.id && (
-          <p><input className="read" type="text" value={t.detail} /></p>
+          <p><textarea className="read" type="text" value={t.detail} 
+            style={{textDecoration: t.isDone ? 'line-through' : 'none'}}/>
+          </p>
         )}
         {isUpdateActive && (
           <Update todo={t.todo} detail={t.detail} 
@@ -170,8 +190,8 @@ function App() {
     <div className="list-wrap">
       <div className="list">
         <Header></Header>
-        <Create onCreate={todo => {
-          const newTopic = {id: nextId, todo: todo};
+        <Create onCreate={(todo) => {
+          const newTopic = {id: nextId, todo: todo, detail: '수정 버튼을 눌러 내용을 입력할 수 있습니다'};
           const newTopics = [...topics];
           newTopics.push(newTopic);
           setTopics(newTopics);
