@@ -183,8 +183,8 @@ function App() {
   const [nextId, setNextId] = useState(4);
   const [topics, setTopics] = useState([
     {id:1, todo: '자바스크립트 공부하기', detail: 'Deep Dive 정독', isDone: true, isImport: true},
-    {id:2, todo: '리액트 공부하기', detail: '자세한 내용2', isDone: true, isImport: false},
-    {id:3, todo: '할일3', detail: '자세한 내용3', isDone: false, isImport: false}
+    {id:2, todo: '리액트 공부하기', detail: '세미 프로젝트 제작', isDone: true, isImport: false},
+    {id:3, todo: '운동', detail: '하체 하는날', isDone: false, isImport: false}
   ]);
   return (
     <div className="list-wrap">
