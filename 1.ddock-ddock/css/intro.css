@@ -1,0 +1,206 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#html, body {height: 100%;}
+#body {
+	display: flex;
+	flex-direction: column;
+	background-image: url('#');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#wrap {
+	padding-bottom: 100px;
+	width: 100%;
+	color: #000000;
+	font-weight: regular;
+	font-size: 20px;
+}
+
+#header-wrap {
+	width: 100%;
+	height: 460px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#content-wrap {
+	width: 100%;
+	height: 500px;
+	padding: 20px;
+}
+
+#content2-wrap {
+	width: 100%;
+	height: 500px;
+	font-weight: bold;
+	margin: auto;
+	background: url(../img/intro_img2.JPG) no-repeat;
+	background-attachment : fixed;
+	background-size: 100%;
+}
+
+#content3-wrap {
+	width: 100%;
+	height: 500px;
+	text-align: left; /*background-color: #bcaaa4;*/
+	flex: 1;
+}
+
+.header-container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+.header-h1 {
+	width: 100%;
+	font-size: 40px;
+	padding: 1em 0 0 0;
+	margin: 0 auto;
+}
+
+.header-img {
+	width: 160px;
+	padding: 1em 0 0 0;
+}
+
+.content-wrap-left {
+	width: 65%;
+	height: 500px;	
+	float: left;
+	text-align: left;
+	padding: 50px;
+}
+
+.content-h1 {
+	width: 100%;
+	font-weight: bold;
+	font-size: 30px;
+	padding: 2em 0 0 1.7em;
+	margin: 0 auto;
+}
+
+.content-h2 {
+	color: #868686;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 0.2em 0 0 2.7em;
+	margin: 0 auto;
+}
+
+.content-container1 {
+	color: #a5a5a5;
+	font-weight: regular;
+	font-size: 18px;
+	padding: 2em 0 0 2.9em;
+	margin: 0 auto;
+}
+
+.content-img1 {
+	width: 350px;
+	padding: 0 0 8em 0;
+}
+
+.content2-container {
+	width: 100vw;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+}
+
+.content3-left {
+	width: 50%;
+	height: 500px;
+	margin: 0 auto;
+	background: url(../img/intro_img3.jpg) no-repeat;
+	background-size: 100%;
+	float: left;
+	flex: 1;
+}
+
+.content3-right {
+	width: 50%;
+	height: 500px;
+	margin: 0 auto;
+	background: url(../img/intro_img4.jpg) no-repeat;
+	background-size: 100%;
+	float: right; 
+	flex: 1;
+}
+
+.content3-h1 {
+	width: 100%;
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 200px;
+	padding: 1em 0 0 2.9em;
+	margin: 0 auto;
+}
+
+.content3-p {
+	width: 100%;
+	font-size: 1.2vw;
+	padding: 0em 0 0 4em;
+	margin: 0 auto;
+}
+
+/* Scroll Animation (sa, 스크롤 애니메이션) */
+.sa {
+	opacity: 0;
+	transition: all 1s ease;
+}
+
+.sa-slow {
+	opacity: 0;
+	transition: all 2s ease;
+}
+
+/* 이미지 등장 애니메이션 */
+.sa-transform {
+	transform: scale(0.95);
+}
+
+/* 아래에서 위로 페이드 인 */
+.sa-up {
+	transform: translate(0, 100px);
+}
+/* 위에서 아래로 페이드 인 */
+.sa-down {
+	transform: translate(0, -100px);
+}
+/* 왼쪽에서 오른쪽으로 페이드 인 */
+.sa-right {
+	transform: translate(-100px, 0);
+}
+/* 오른쪽에서 왼쪽으로 페이드 인 */
+.sa-left {
+	transform: translate(100px, 0);
+}
+/* 왼쪽으로 회전하면서 페이드 인 */
+.sa-rotateL {
+	transform: rotate(180deg);
+}
+/* 오른쪽으로 회전하면서 페이드 인 */
+.sa-rotateR {
+	transform: rotate(-180deg);
+}
+/* 작아진 상태에서 커지면서 페이드 인 */
+.sa-scaleUp {
+	transform: scale(.5);
+}
+/* 커진 상태에서 작아지면서 페이드 인 */
+.sa-scaleDown {
+	transform: scale(1.5);
+}
+
+.sa.show {
+	opacity: 1;
+	transform: none;
+}
