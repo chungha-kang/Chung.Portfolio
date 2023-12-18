@@ -4,23 +4,6 @@
 <body>
     <!-- 상단 네비게이션 -->
     <div id="navigation-menu">
-        <!--  
-        <ul id="nav-login">
-            <c:if test="${empty sessionScope.loginData}">
-                <li><a href="/Chung.Portfolio/1.ddock-ddock/join">회원가입</a></li>
-                <li><a href="/Chung.Portfolio/1.ddock-ddock/login">로그인</a></li>
-            </c:if>
-            <c:if test="${not empty sessionScope.loginData}">
-                <c:if test="${sessionScope.loginData.admType == 'O'}">
-                    <li><a href="/Chung.Portfolio/1.ddock-ddock/admin">관리자페이지</a></li>
-                </c:if>
-                <c:if test="${sessionScope.loginData.admType == 'X'}">
-                    <li><a href="/Chung.Portfolio/1.ddock-ddock/myPage">마이페이지</a></li>
-                </c:if>
-                <li><a href="/Chung.Portfolio/1.ddock-ddock/logout">로그아웃</a></li>
-            </c:if>
-        </ul>
-        -->
         <ul class="nav-main">
             <li class="nav-item dropdown oneline"><a class="main-list" href="/Chung.Portfolio/1.ddock-ddock/intro">똑똑 소개</a>
                 <ul class="nav-main dropdown-nav">

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>똑똑 소개</title>
-	<!-- <%@ include file="../module/head.jsp"%>
-	<link rel="stylesheet" href="../resources/css/intro.css"> -->
+	<link rel="stylesheet" media="all" href="css/common.css" />
+	<link rel="stylesheet" media="all" href="css/bootstrap.css" />
 	<link rel="stylesheet" media="all" href="css/intro.css" />
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
@@ -16,13 +16,14 @@
 </head>
 <body>
 	<header>
+		<!-- 상단 네비게이션 -->
 		<div id="header"></div>
 	</header>
 
 	<div id="header-wrap">
 		<div class="header-h1 sa sa-up">똑똑 소개</div>
 		<div class="header-container sa sa-up" data-sa-delay="200">
-			<img class="header-img" src="../resources/img/intro_logo.png">
+			<img class="header-img" src="img/intro_logo.png">
 		</div>
 		<div class="header-container sa sa-up" data-sa-delay="400">
 			쉐어하우스를 똑똑하게 고를 수 있는 곳이라는 의미로,<br>문을 두드리는 소리를 빗대어 나타낸 중의적인 이름입니다.
@@ -42,7 +43,7 @@
 			</div>
 		</div>
 		<div id="content-wrap" style="transform: translate( -3%, 7% );">
-			<img class="content-img1 sa sa-up" src="../resources/img/intro_img1.png">
+			<img class="content-img1 sa sa-up" src="img/intro_img1.png">
 		</div>
 	</div>
 
@@ -94,7 +95,7 @@
 	</div>
 	<footer>
 		<!-- 하단 네비게이션 -->
-		<%@ include file="../module/footer.jsp"%>
+		<div id="footer"></div>
 	</footer>
 	
 	<script>
