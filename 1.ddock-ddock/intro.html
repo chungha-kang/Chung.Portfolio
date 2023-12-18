@@ -6,11 +6,16 @@
 	<!-- <%@ include file="../module/head.jsp"%>
 	<link rel="stylesheet" href="../resources/css/intro.css"> -->
 	<link rel="stylesheet" media="all" href="css/intro.css" />
+	<script>
+		$(document).ready( function() {
+		    $("#header").load("module/header.html");
+		    $("#footer").load("module/footer.html");
+		});
+	</script>
 </head>
 <body>
 	<header>
-		<!-- 상단 네비게이션 -->
-		<%@ include file="../module/navigation.jsp"%>
+		<div id="header"></div>
 	</header>
 
 	<div id="header-wrap">
