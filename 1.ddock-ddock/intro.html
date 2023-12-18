@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>똑똑 소개</title>
+	<%@ include file="../module/head.jsp"%>
+	<link rel="stylesheet" href="../resources/css/intro.css">
+</head>
+<body>
+	<header>
+		<!-- 상단 네비게이션 -->
+		<%@ include file="../module/navigation.jsp"%>
+	</header>
+
+	<div id="header-wrap">
+		<div class="header-h1 sa sa-up">똑똑 소개</div>
+		<div class="header-container sa sa-up" data-sa-delay="200">
+			<img class="header-img" src="../resources/img/intro_logo.png">
+		</div>
+		<div class="header-container sa sa-up" data-sa-delay="400">
+			쉐어하우스를 똑똑하게 고를 수 있는 곳이라는 의미로,<br>문을 두드리는 소리를 빗대어 나타낸 중의적인 이름입니다.
+		</div>
+	</div>
+
+	<div id="content-wrap mb-5">
+		<div class="content-wrap-left" style="transform: translate( 30%, 0% );">
+			<div class="content-h1 sa sa-up">
+				온전히 내게 집중할 수 있는 공간<br>여러분이 꿈꾸는 일상을 만들어보세요
+			</div>
+			<div class="content-h2 sa sa-up">A better tomorrow in DDockDDock</div>
+			<div class="content-container1 sa sa-up" data-sa-delay="200">
+				똑똑은 청년들의 주거문제를 해결하고 <br>낡아서 아무도 살지 않는 집들에 에너지를 불어넣는<br>
+				커뮤니티 중심의 지속가능한 주거재생을 위해 만들어진 기업입니다.<br>똑똑에서 똑똑하게 당신의 미래를 함께
+				만들어보세요
+			</div>
+		</div>
+		<div id="content-wrap" style="transform: translate( -3%, 7% );">
+			<img class="content-img1 sa sa-up" src="../resources/img/intro_img1.png">
+		</div>
+	</div>
+
+	<div id="content2-wrap" style="height: 1000px !important">
+		<div class="content2-container">
+		<div class="row row-cols-1 row-cols-md-4" style="justify-content: center; align-items: center; transform: translate( 0%, 100% );">
+			<div class="col" style="max-width: 12rem;">
+				<div class="card text-bg-light mb-3 sa sa-up" style="max-width: 18rem; margin: auto; font-weight: bold; text-align: center;">
+					<div class="card-body">다양한 색깔을<br>내게 입히는<br>우리들의 공간<br><span style="font-size: 20px;">똑똑</span></div>
+				</div>
+			</div> 
+			<div class="col" style="max-width: 20rem;">
+				<div class="card text-bg-light mb-3 sa sa-up" data-sa-delay="200" style="max-width: 18rem; text-align: center; margin: auto;">
+					<div class="card-header" style="font-weight: bold;">보금자리</div>
+					<div class="card-body">
+						<p class="card-text">너무 높은 주택 가격 때문에 힘들게<br>살 곳을 찾는 외로운 청년들,<br>이곳으로 오세요!</p>
+					</div>
+				</div>
+			</div>
+			<div class="col" style="max-width: 20rem;">
+				<div class="card text-bg-light mb-3 sa sa-up" data-sa-delay="400" style="max-width: 18rem; text-align: center; margin: auto;">
+					<div class="card-header" style="font-weight: bold;">수익성 재고</div>
+					<div class="card-body">
+						<p class="card-text">1인 가구가 늘어나며 방치되는<br>기존의 중·대형 주택들,<br>수익 모델을 새롭게 만들수 있습니다.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col" style="max-width: 24rem;">
+				<div class="card text-bg-light mb-3 sa sa-up" data-sa-delay="600" style="max-width: 24rem; text-align: center; margin: auto;">
+					<div class="card-header" style="font-weight: bold;">업사이클링</div>
+					<div class="card-body">
+						<p class="card-text">관리가 되지 않아 주변 환경을 악화 시키고<br> 지역 공동체를 위협하는 빈집들,<br> 새롭게 뒤바꿉니다.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+		
+	<div id="content3-wrap">
+		<div class="content3-left sa sa-transform">
+			<h1 class="content3-h1 sa sa-right">똑똑한 우리를 위한 커뮤니티</h1>
+			<p class="content3-p sa sa-right">똑똑에서는 똑똑한 소비를 하기 위해 정보를 공유할 수 있는 커뮤니티를 제공합니다.<br>주거에 대한 정보, 지역에 대한 이야기 외에도 각종 정보들 얻어가시길 바랍니다.<br>똑똑한 우리들을 위한 소통의 공간!</p>
+		</div>
+		<div class="content3-right sa sa-transform">
+			<h1 class="content3-h1 sa sa-left">똑똑 만드는 사람들</h1>
+			<p class="content3-p sa sa-left">똑똑은 MZ세대가 가진 주거에 대한 고민을 해결하기 위한 일을 합니다.<br>또한 방치되는 기존의 주택들을 새롭게 살려내고 수익성을 만들어내고 있습니다.<br>모두를 위한 똑똑한 운영을 하기 위해 노력하고 있습니다.</p> 
+		</div>
+	</div>
+	<footer>
+		<!-- 하단 네비게이션 -->
+		<%@ include file="../module/footer.jsp"%>
+	</footer>
+	
+	<script>
+		// Scroll Animation (sa, 스크롤 애니메이션)
+		const saDefaultMargin = 300;
+		let saTriggerMargin = 0;
+		let saTriggerHeight = 0;
+		const saElementList = document.querySelectorAll('.sa');
+	
+		const saFunc = function() {
+		  for (const element of saElementList) {
+		    if (!element.classList.contains('show')) {
+		      if (element.dataset.saMargin) {
+		        saTriggerMargin = parseInt(element.dataset.saMargin);
+		      } else {
+		        saTriggerMargin = saDefaultMargin;
+		      }
+	
+		      if (element.dataset.saTrigger) {
+		        saTriggerHeight = document.querySelector(element.dataset.saTrigger).getBoundingClientRect().top + saTriggerMargin;
+		      } else {
+		        saTriggerHeight = element.getBoundingClientRect().top + saTriggerMargin;
+		      }
+	
+		      if (window.innerHeight > saTriggerHeight) {
+		        let delay = (element.dataset.saDelay) ? element.dataset.saDelay : 0;
+		        setTimeout(function() {
+		          element.classList.add('show');
+		        }, delay);
+		      }
+		    }
+		  }
+		}
+	
+		window.addEventListener('load', saFunc);
+		window.addEventListener('scroll', saFunc);
+	</script>
+</body>
+</html>
