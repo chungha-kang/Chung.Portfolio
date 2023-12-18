@@ -1,15 +1,13 @@
-body {background-color: blanchedalmond;}
+body {background-color: blanchedalmond; font-family: 'Noto Sans KR', sans-serif;}
 html{font: 62.5%;}
-ul, li {margin: 0px; padding: 0;}
+ul, li, hr {margin: 0; padding: 0;}
 a {text-decoration-line: none;}
 a:visited {color: black;}
 
-.header > a {
-  text-decoration-color: orange;
+.btn {
+  padding: 0;
+  cursor: pointer;
 }
-/* .header > a:visited {
-  color: orange;
-} */
 
 .list-wrap {
   width: 100%;
@@ -33,51 +31,137 @@ a:visited {color: black;}
 .list li > a {
   color: black;
 }
+
+/* Header */
 .list > header {
   margin: 3rem auto 0;
   display: flex;
   justify-content: space-around;
 }
-
-
-/* 초기 생성 CSS */
-/*
-.App {
-  text-align: center;
+.list header h2 > a {
+  margin-left: 1rem;
+  color: white;
+  font-weight: 900 ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.list header > p {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.list header .date {
+  display: flex;
+  color: white;
+  font-weight: 600;
+}
+.list header .day {
+  margin: 1rem 1rem 0 0;
+}
+.list header .day > p {
+  margin: 0;
+}
+.list header .year {
+  margin: 1rem 1rem 0 0;
+}
+.list header .year > p {
+  margin: 0;
+}
+/* Create */
+.list form {
+  margin: 0.4rem auto 1rem;
+}
+.list form .inputUnderLine {
+  margin: 1rem auto 1.2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 1px solid gray;
+  opacity: 0.7;
+}
+.list form .inputBtn {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.6rem;
+  color: white;
+  text-align: center;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  border: none;
+  border-radius: 50%;
+  background-color: skyblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* List */
+.checkbox{
+  font-size: large;
+  border: none;
+  background-color: white;
 }
-*/
+.list li .liBtn {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.2rem;
+  color: white;
+  font-family: "Font Awesome 5 Free";
+  font-size: medium;
+  font-weight: 500;
+  border: none;
+  border-radius: 50%;
+  background-color: skyblue;
+}
+.list li {
+  text-align: left;
+  margin-left: 1.7rem;
+}
+.list li .todoList {
+  font-size: 1rem;
+  border: none;
+  width: 11.3rem;
+  cursor: pointer;
+  resize: none;
+  overflow: hidden;
+  translate: 0 0.4rem;
+}
+.list li .todoList:focus {
+  outline: none;
+}
+.list li .checkbox {
+  color: skyblue;
+}
+.list li .checkbox:hover {
+  color: black;
+}
+.list li > hr {
+  margin: 0.8rem 0;
+  width: 90%;
+  color: gray;
+  opacity: 0.3;
+}
+/* a태그 클릭시 등장하는 detail 부분 */
+.list li p .read {
+  margin-left: 2.2rem;
+  padding: 1rem;
+  border: none;
+  resize: none;
+  background-color: beige;
+  filter: drop-shadow(1px 2px 2px rgb(0, 0, 0, 0.2));
+}
+
+/* Update */
+.list li form p input {
+  margin-left: 1.5rem;
+  width: 13.5rem;
+  border: none;
+  border-bottom: 1px solid gray;
+  color: gray;
+}
+
+.list li form .editBtn {
+  width: 2.4rem;
+  height: 1.3rem;
+  margin-left: 7rem;
+  color: white;
+  font-size: medium;
+  font-weight: 700;
+  border: none;
+  border-radius: 10%;
+  background-color: skyblue;
+}
